@@ -1,0 +1,13 @@
+if ROLE in('INPUT', 'REJECTED') then do;
+if upcase(NAME) in(
+'ACCELERATION'
+'CAR_NAME'
+'CYLINDERS'
+'DISPLACEMENT'
+'HORSEPOWER'
+'MODEL'
+'ORIGIN'
+'WEIGHT'
+) then ROLE='INPUT';
+else delete;
+end;

@@ -1,0 +1,509 @@
+*------------------------------------------------------------*
+User:                AutoLogon
+Date:                August 11, 2022
+Time:                17:02:08
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+INPUT      INTERVAL          5
+INPUT      NOMINAL           1
+TARGET     INTERVAL          1
+ 
+ 
+ 
+ 
+Predicted and decision variables
+ 
+Type         Variable        Label
+ 
+TARGET        mpg
+PREDICTED     P_mpg      Predicted: mpg
+RESIDUAL      R_mpg      Residual: mpg
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+Preliminary       Starting         Objective         Number
+ Training          Random           Function           of        Terminating
+    Run             Seed             Value         Iterations     Criteria
+ 
+        1               12345    4.419704939594           10
+        2          1358840789    4.332505590055           10
+        3          1023729404    4.064256391696           10
+        4           781996371    4.510600453067           10
+        5          1390057497    4.328793477182           10
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+                   Optimization Start
+                   Parameter Estimates
+                                                Gradient
+                                               Objective
+  N Parameter                   Estimate        Function
+ 
+  1 PWR_displacement_H11        0.676186        0.193824
+  2 SQRT_weight_H11             0.072203        0.213624
+  3 acceleration_H11            0.159625        0.003629
+  4 model_H11                  -1.001403        0.244490
+  5 origin_H11                  0.215485       -0.182303
+  6 PWR_displacement_H12        2.114973       -0.225179
+  7 SQRT_weight_H12            -1.359077       -0.343319
+  8 acceleration_H12            0.395548       -0.111867
+  9 model_H12                   0.635168       -0.463481
+ 10 origin_H12                  2.562719        0.067267
+ 11 PWR_displacement_H13       -1.542245       -0.072959
+ 12 SQRT_weight_H13             1.905392       -0.190552
+ 13 acceleration_H13            0.398564       -0.034321
+ 14 model_H13                  -0.138053        0.152107
+ 15 origin_H13                 -1.977011        0.069445
+ 16 PWR_displacement_H14        1.190023       -0.109301
+ 17 SQRT_weight_H14            -1.706025       -0.188044
+ 18 acceleration_H14           -0.397651       -0.024985
+ 19 model_H14                  -1.153876        0.119174
+ 20 origin_H14                  0.684125        0.115564
+ 21 PWR_displacement_H15       -2.700315        0.263943
+ 22 SQRT_weight_H15            -0.007535        0.326397
+ 23 acceleration_H15           -0.984210       -0.018793
+ 24 model_H15                   0.046661        0.024752
+ 25 origin_H15                 -0.026922       -0.353066
+ 26 G_horsepower0_H11          -0.235721        0.012802
+ 27 G_horsepower1_H11          -1.175096        0.020818
+ 28 G_horsepower2_H11           1.029715        0.014759
+ 29 G_horsepower3_H11          -1.238276       -0.048338
+ 30 G_horsepower4_H11           0.207147       -0.085951
+ 31 G_horsepower5_H11           0.189772       -0.013505
+ 32 G_horsepower6_H11          -0.781991       -0.001768
+ 33 G_horsepower0_H12          -0.233963       -0.010516
+ 34 G_horsepower1_H12          -0.583178       -0.050216
+ 35 G_horsepower2_H12           1.035186       -0.016309
+ 36 G_horsepower3_H12          -0.675062       -0.081069
+ 37 G_horsepower4_H12          -0.099583        0.061367
+ 38 G_horsepower5_H12           0.431629       -0.004210
+ 39 G_horsepower6_H12          -0.138681        0.032710
+ 40 G_horsepower0_H13          -0.886844       -0.088396
+ 41 G_horsepower1_H13          -0.691309        0.014564
+ 42 G_horsepower2_H13          -1.824176       -0.010378
+ 43 G_horsepower3_H13           0.348650       -0.008225
+ 44 G_horsepower4_H13           0.856677        0.075055
+ 45 G_horsepower5_H13          -0.110096        0.014510
+ 46 G_horsepower6_H13           0.896974        0.034919
+ 47 G_horsepower0_H14          -0.135164       -0.047697
+ 48 G_horsepower1_H14           0.745900       -0.053604
+ 49 G_horsepower2_H14           1.551870       -0.017920
+ 50 G_horsepower3_H14           0.092695       -0.045877
+ 51 G_horsepower4_H14          -1.266182        0.072783
+ 52 G_horsepower5_H14           0.528500        0.021794
+ 53 G_horsepower6_H14          -1.030490        0.051445
+ 54 G_horsepower0_H15          -0.215391       -0.001768
+ 55 G_horsepower1_H15           0.527438       -0.025537
+ 56 G_horsepower2_H15           0.300055       -0.048120
+ 57 G_horsepower3_H15           0.830490        0.024547
+ 58 G_horsepower4_H15          -0.563250       -0.192759
+ 59 G_horsepower5_H15          -0.148703        0.025627
+ 60 G_horsepower6_H15          -0.713350       -0.079068
+ 61 BIAS_H11                   -1.053819       -0.093030
+ 62 BIAS_H12                    1.970936       -0.068273
+ 63 BIAS_H13                   -1.292371        0.002663
+ 64 BIAS_H14                    0.935501       -0.025754
+ 65 BIAS_H15                   -1.513930       -0.281604
+ 66 H11_mpg                     1.847398       -0.055860
+ 67 H12_mpg                    -4.719623       -0.096709
+ 68 H13_mpg                    -4.774850        0.195693
+ 69 H14_mpg                    -3.175066       -0.124117
+ 70 H15_mpg                     3.471952       -0.080340
+ 71 PWR_displacement_mpg        2.882858        0.093853
+ 72 SQRT_weight_mpg            -2.922393        0.179534
+ 73 acceleration_mpg            1.564308        0.036428
+ 74 model_mpg                   2.724584        0.179758
+ 75 origin_mpg                  0.808272       -0.206732
+ 76 G_horsepower0_mpg          -8.584246        0.004702
+ 77 G_horsepower1_mpg          -4.623844        0.004264
+ 78 G_horsepower2_mpg          -3.368745       -0.010592
+ 79 G_horsepower3_mpg          -1.224805        0.000229
+ 80 G_horsepower4_mpg           0.903875       -0.052488
+ 81 G_horsepower5_mpg           2.130834       -0.003714
+ 82 G_horsepower6_mpg           3.252409       -0.023000
+ 83 BIAS_mpg                   29.644335       -0.074106
+ 
+Value of Objective Function = 4.0642563917
+ 
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+Levenberg-Marquardt Optimization
+ 
+ 
+Minimum Iterations                                0
+Maximum Iterations                               50
+Maximum Function Calls                   2147483647
+Maximum CPU Time                              14400
+ABSGCONV Gradient Criterion                 0.00001
+GCONV Gradient Criterion                       1E-8
+GCONV2 Gradient Criterion                         0
+ABSFCONV Function Criterion                       0
+FCONV Function Criterion                     0.0001
+FCONV2 Function Criterion                         0
+FSIZE Parameter                                   0
+ABSXCONV Parameter Change Criterion               0
+XCONV Parameter Change Criterion                  0
+XSIZE Parameter                                   0
+ABSCONV Function Criterion             0.0606909097
+Trust Region Initial Radius Factor                1
+Singularity Tolerance (SINGULAR)               1E-8
+ 
+Levenberg-Marquardt Optimization
+ 
+Scaling Update of More (1978)
+ 
+Parameter Estimates              83
+ 
+                                             Optimization Start
+ 
+Active Constraints                                  0  Objective Function                       4.0642563917
+Max Abs Gradient Element                 0.4634810594  Radius                                    3.227127587
+ 
+ 
+                                                                                                         Ratio
+                                                                                                       Between
+                                                                                                        Actual
+                                                                 Objective     Max Abs                     and
+                     Function         Active        Objective     Function    Gradient               Predicted
+Iter     Restarts       Calls    Constraints         Function       Change     Element     Lambda       Change
+ 
+   1*           0           3              0          3.87437       0.1899      0.2356      0.241        1.006
+   2*           0           4              0          3.69232       0.1820      0.1201     0.0379        1.054
+   3*           0           5              0          3.52184       0.1705      0.2839    0.00728        1.087
+   4*           0           7              0          3.44014       0.0817      0.2201    0.00478        0.679
+   5*           0           9              0          3.41781       0.0223      0.1866     0.0283        0.248
+   6*           0          11              0          3.39090       0.0269      0.1334      0.149        0.449
+   7*           0          13              0          3.38360      0.00730      0.1082      0.153        0.343
+   8*           0          14              0          3.37905      0.00455      0.0704      0.166        0.329
+   9*           0          15              0          3.37629      0.00276      0.0770     0.0934        0.295
+  10*           0          16              0          3.37365      0.00264      0.0611      0.129        0.269
+  11*           0          17              0          3.37163      0.00202      0.0741     0.0911        0.237
+  12*           0          18              0          3.36950      0.00213      0.0608      0.121        0.227
+  13*           0          19              0          3.36777      0.00173      0.0754     0.0926        0.199
+  14*           0          20              0          3.36586      0.00191      0.0622      0.119        0.199
+  15*           0          21              0          3.36425      0.00161      0.0772     0.0943        0.178
+  16*           0          22              0          3.36248      0.00177      0.0636      0.118        0.180
+  17*           0          23              0          3.36091      0.00157      0.0786     0.0960        0.168
+  18*           0          24              0          3.35922      0.00168      0.0648      0.117        0.167
+  19*           0          25              0          3.35765      0.00157      0.0797     0.0977        0.163
+  20*           0          26              0          3.35603      0.00162      0.0657      0.116        0.157
+  21*           0          27              0          3.35443      0.00161      0.0805     0.0995        0.162
+  22*           0          28              0          3.35285      0.00158      0.0665      0.116        0.151
+  23*           0          29              0          3.35118      0.00167      0.0811      0.101        0.164
+  24*           0          30              0          3.34962      0.00156      0.0670      0.115        0.146
+  25*           0          31              0          3.34788      0.00175      0.0814      0.103        0.167
+  26*           0          32              0          3.34633      0.00155      0.0673      0.115        0.144
+  27*           0          33              0          3.34451      0.00182      0.0815      0.105        0.170
+  28*           0          34              0          3.34297      0.00154      0.0675      0.115        0.142
+  29*           0          35              0          3.34111      0.00186      0.0816      0.106        0.170
+  30*           0          36              0          3.33959      0.00152      0.0678      0.114        0.138
+  31*           0          37              0          3.33774      0.00185      0.0820      0.107        0.167
+  32*           0          38              0          3.33626      0.00147      0.0684      0.115        0.132
+  33*           0          39              0          3.33445      0.00182      0.0829      0.108        0.161
+  34*           0          40              0          3.33302      0.00143      0.0694      0.115        0.126
+  35*           0          41              0          3.33124      0.00178      0.0840      0.109        0.154
+  36*           0          42              0          3.32984      0.00140      0.0706      0.117        0.120
+  37*           0          43              0          3.32810      0.00174      0.0855      0.110        0.147
+  38*           0          44              0          3.32672      0.00138      0.0719      0.118        0.116
+  39*           0          45              0          3.32500      0.00172      0.0870      0.111        0.142
+  40*           0          46              0          3.32361      0.00139      0.0732      0.120        0.113
+  41*           0          47              0          3.32188      0.00173      0.0884      0.113        0.140
+  42*           0          48              0          3.32049      0.00140      0.0743      0.121        0.111
+  43*           0          49              0          3.31823      0.00226      0.0827      0.132        0.187
+  44*           0          50              0          3.31708      0.00115      0.0714      0.111        0.102
+  45*           0          51              0          3.31530      0.00178      0.0880      0.115        0.144
+  46*           0          52              0          3.31395      0.00134      0.0746      0.119        0.107
+  47*           0          53              0          3.31156      0.00240      0.0831      0.136        0.194
+  48*           0          54              0          3.31038      0.00118      0.0719      0.110        0.103
+  49*           0          55              0          3.30813      0.00225      0.0844      0.129        0.182
+  50*           0          56              0          3.30671      0.00143      0.0711      0.119        0.123
+ 
+                                            Optimization Results
+ 
+Iterations                                         50  Function Calls                                     58
+Jacobian Calls                                     52  Active Constraints                                  0
+Objective Function                       3.3067050438  Max Abs Gradient Element                 0.0711468438
+Lambda                                   0.1187787274  Actual Over Pred Change                   0.123058199
+Radius                                   0.2145275451
+ 
+LEVMAR needs more than 50 iterations or 2147483647 function calls.
+ 
+WARNING: LEVMAR Optimization cannot be completed.
+ 
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+                  Optimization Results
+                   Parameter Estimates
+                                                Gradient
+                                               Objective
+  N Parameter                   Estimate        Function
+ 
+  1 PWR_displacement_H11       -0.217142        0.011842
+  2 SQRT_weight_H11             0.299684        0.004382
+  3 acceleration_H11           -0.080371       -0.001999
+  4 model_H11                  -1.566699        0.000664
+  5 origin_H11                 -0.552418       -0.001718
+  6 PWR_displacement_H12        4.956869       -0.004655
+  7 SQRT_weight_H12            -3.023762       -0.000678
+  8 acceleration_H12            0.416007        0.005327
+  9 model_H12                   0.989361        0.006282
+ 10 origin_H12                  5.106605       -0.000715
+ 11 PWR_displacement_H13       -1.538989       -0.005289
+ 12 SQRT_weight_H13             2.092685       -0.004958
+ 13 acceleration_H13            0.637040        0.001070
+ 14 model_H13                  -0.495123       -0.003029
+ 15 origin_H13                 -2.471525        0.002236
+ 16 PWR_displacement_H14        2.053608        0.071147
+ 17 SQRT_weight_H14            -2.897865        0.060241
+ 18 acceleration_H14           -0.383260       -0.041304
+ 19 model_H14                  -2.657689       -0.025884
+ 20 origin_H14                  2.728860       -0.066972
+ 21 PWR_displacement_H15       -4.499109        0.039923
+ 22 SQRT_weight_H15         -0.000038280        0.032393
+ 23 acceleration_H15           -1.924490       -0.021406
+ 24 model_H15                   0.279298       -0.029987
+ 25 origin_H15                 -0.009471       -0.056685
+ 26 G_horsepower0_H11          -0.321349       -0.000892
+ 27 G_horsepower1_H11          -2.114332       -0.000784
+ 28 G_horsepower2_H11           0.242487       -0.000723
+ 29 G_horsepower3_H11          -0.199094       -0.001945
+ 30 G_horsepower4_H11          -0.189634       -0.005311
+ 31 G_horsepower5_H11           0.177042       -0.002411
+ 32 G_horsepower6_H11          -0.309949       -0.001713
+ 33 G_horsepower0_H12          -1.057382       -0.001396
+ 34 G_horsepower1_H12          -1.340878        0.000253
+ 35 G_horsepower2_H12           2.539450       -0.000716
+ 36 G_horsepower3_H12          -0.885662       -0.000237
+ 37 G_horsepower4_H12          -0.039752        0.000508
+ 38 G_horsepower5_H12           1.715234       -0.001105
+ 39 G_horsepower6_H12           0.496931        0.001536
+ 40 G_horsepower0_H13          -1.115543        0.002597
+ 41 G_horsepower1_H13          -1.284127        0.000474
+ 42 G_horsepower2_H13          -2.939531        0.001085
+ 43 G_horsepower3_H13           0.278352        0.000965
+ 44 G_horsepower4_H13           1.290731       -0.001461
+ 45 G_horsepower5_H13           0.434616       -0.000701
+ 46 G_horsepower6_H13           0.944669        0.003063
+ 47 G_horsepower0_H14           0.670004        0.008229
+ 48 G_horsepower1_H14           5.040509       -0.002906
+ 49 G_horsepower2_H14           3.139522       -0.000665
+ 50 G_horsepower3_H14          -0.455571        0.002329
+ 51 G_horsepower4_H14          -2.523265       -0.018204
+ 52 G_horsepower5_H14          -0.203181       -0.001521
+ 53 G_horsepower6_H14          -4.100061       -0.017622
+ 54 G_horsepower0_H15          -0.837169       -0.000280
+ 55 G_horsepower1_H15           0.337815       -0.002316
+ 56 G_horsepower2_H15           1.509846       -0.003951
+ 57 G_horsepower3_H15           0.290665       -0.001444
+ 58 G_horsepower4_H15          -0.396616       -0.000301
+ 59 G_horsepower5_H15          -0.577545       -0.005014
+ 60 G_horsepower6_H15          -1.334270       -0.015513
+ 61 BIAS_H11                   -1.246616       -0.004513
+ 62 BIAS_H12                    3.552453       -0.001159
+ 63 BIAS_H13                   -1.586324        0.001349
+ 64 BIAS_H14                    1.587630       -0.037781
+ 65 BIAS_H15                   -2.463774       -0.026146
+ 66 H11_mpg                     4.349426        0.002500
+ 67 H12_mpg                    -3.552540       -0.000609
+ 68 H13_mpg                    -5.145975       -0.000620
+ 69 H14_mpg                    -2.808485        0.002226
+ 70 H15_mpg                     2.871719        0.001806
+ 71 PWR_displacement_mpg        3.250408        0.003090
+ 72 SQRT_weight_mpg            -2.662771        0.001534
+ 73 acceleration_mpg            1.923534       -0.002985
+ 74 model_mpg                   3.063790        0.000855
+ 75 origin_mpg                  1.634755       -0.003565
+ 76 G_horsepower0_mpg          -9.028237        0.002558
+ 77 G_horsepower1_mpg          -2.857562        0.000385
+ 78 G_horsepower2_mpg          -4.842966        0.001091
+ 79 G_horsepower3_mpg          -1.173736       -0.002210
+ 80 G_horsepower4_mpg           1.250255        0.000206
+ 81 G_horsepower5_mpg           2.128984       -0.003666
+ 82 G_horsepower6_mpg           2.944047       -0.000221
+ 83 BIAS_mpg                   29.680560       -0.000785
+ 
+Value of Objective Function = 3.3067050438
+ 
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Fit Statistics
+ 
+Target=mpg Target Label=' '
+ 
+   Fit
+Statistics    Statistics Label                     Train    Validation
+ 
+ _DFT_        Total Degrees of Freedom            318.00          .
+ _DFE_        Degrees of Freedom for Error        235.00          .
+ _DFM_        Model Degrees of Freedom             83.00          .
+ _NW_         Number of Estimated Weights          83.00          .
+ _AIC_        Akaike's Information Criterion      546.45          .
+ _SBC_        Schwarz's Bayesian Criterion        858.70          .
+ _ASE_        Average Squared Error                 3.31        16.52
+ _MAX_        Maximum Absolute Error                7.35        15.48
+ _DIV_        Divisor for ASE                     318.00        80.00
+ _NOBS_       Sum of Frequencies                  318.00        80.00
+ _RASE_       Root Average Squared Error            1.82         4.06
+ _SSE_        Sum of Squared Errors              1051.99      1321.65
+ _SUMW_       Sum of Case Weights Times Freq      318.00        80.00
+ _FPE_        Final Prediction Error                5.64          .
+ _MSE_        Mean Squared Error                    4.48        16.52
+ _RFPE_       Root Final Prediction Error           2.38          .
+ _RMSE_       Root Mean Squared Error               2.12         4.06
+ _AVERR_      Average Error Function                3.31        16.52
+ _ERR_        Error Function                     1051.99      1321.65
+ _MISC_       Misclassification Rate                 .            .
+ _WRONG_      Number of Wrong Classifications        .            .
+ 
+ 
+ 
+ 
+Assessment Score Rankings
+ 
+Data Role=TRAIN Target Variable=mpg Target Label=' '
+ 
+           Number of       Mean        Mean
+Depth    Observations     Target    Predicted
+ 
+   5          16         38.1125     38.5600
+  10          16         35.1000     35.5583
+  15          16         34.2688     33.4792
+  20          16         32.6438     31.5796
+  25          16         30.4750     29.8829
+  30          16         27.2688     28.0162
+  35          16         26.4500     26.7681
+  40          16         26.3063     25.9997
+  45          16         24.9813     25.1245
+  50          15         23.6067     24.0307
+  55          16         22.3313     22.4272
+  60          16         20.4688     21.0203
+  65          16         19.5750     19.6919
+  70          16         18.5125     18.5400
+  75          16         17.6375     17.7375
+  80          16         16.9063     16.4618
+  85          16         14.7438     15.2459
+  90          16         14.5000     14.2296
+  95          16         13.6875     13.4275
+ 100          15         12.2000     11.9785
+ 
+ 
+Data Role=VALIDATE Target Variable=mpg Target Label=' '
+ 
+           Number of       Mean        Mean
+Depth    Observations     Target    Predicted
+ 
+   5           4         38.8500     37.1303
+  10           4         37.1000     34.6480
+  15           4         31.0500     32.8551
+  20           4         30.2500     31.2063
+  25           4         28.7250     29.5239
+  30           4         27.2500     28.7022
+  35           4         26.9750     26.5440
+  40           4         23.1000     25.0833
+  45          13         21.9077     23.6803
+  60           3         20.9333     22.6050
+  65           4         19.9000     21.0706
+  70           4         20.3500     19.8085
+  75           4         19.1250     18.8340
+  80           4         19.3500     18.2628
+  85           4         18.7500     16.6614
+  90           4         15.6250     15.2056
+  95           4         14.0000     13.8519
+ 100           4         12.2500     12.7274
+ 
+ 
+ 
+ 
+Assessment Score Distribution
+ 
+Data Role=TRAIN Target Variable=mpg Target Label=' '
+ 
+   Range for          Mean        Mean        Number of      Model
+   Predicted         Target    Predicted    Observations     Score
+ 
+42.680 -  44.385    43.7000     43.7311           2         43.5324
+39.269 -  40.974    41.8000     39.7981           2         40.1214
+37.563 -  39.269    37.8000     38.1353           5         38.4158
+35.858 -  37.563    36.2667     36.6542          15         36.7103
+34.152 -  35.858    33.7222     34.7335           9         35.0047
+32.446 -  34.152    34.1467     33.4273          15         33.2992
+30.741 -  32.446    32.6059     31.5365          17         31.5937
+29.035 -  30.741    30.4308     29.9530          13         29.8881
+27.330 -  29.035    27.4368     28.0794          19         28.1826
+25.624 -  27.330    26.3938     26.3299          32         26.4771
+23.919 -  25.624    24.4520     24.7444          25         24.7715
+22.213 -  23.919    22.6750     22.9681          16         23.0660
+20.508 -  22.213    20.8000     21.2706          20         21.3604
+18.802 -  20.508    19.6286     19.5778          21         19.6549
+17.097 -  18.802    17.9429     18.0301          28         17.9494
+15.391 -  17.097    16.6091     16.2461          22         16.2438
+13.686 -  15.391    14.3214     14.4684          28         14.5383
+11.980 -  13.686    13.2609     13.0925          23         12.8327
+10.274 -  11.980    11.5000     10.9765           6         11.1272
+ 
+ 
+Data Role=VALIDATE Target Variable=mpg Target Label=' '
+ 
+   Range for          Mean        Mean        Number of      Model
+   Predicted         Target    Predicted    Observations     Score
+ 
+37.366 -  38.685    43.7000     38.4654           2         38.0255
+36.046 -  37.366    36.0000     36.3161           1         36.7057
+34.726 -  36.046    34.9333     35.0309           3         35.3858
+33.406 -  34.726    36.1333     34.1099           3         34.0659
+32.086 -  33.406    30.3500     32.5574           4         32.7461
+30.766 -  32.086    32.0000     32.0710           1         31.4262
+29.446 -  30.766    28.1250     29.9380           4         30.1063
+28.127 -  29.446    28.4000     28.9236           6         28.7864
+26.807 -  28.127    26.8000     27.6615           1         27.4666
+25.487 -  26.807    25.5500     26.0256           4         26.1467
+24.167 -  25.487    23.8600     24.6897           5         24.8268
+22.847 -  24.167    21.6500     23.5467          12         23.5070
+21.527 -  22.847    18.8500     22.0375           4         22.1871
+20.207 -  21.527    22.0000     20.6376           1         20.8672
+18.887 -  20.207    20.3429     19.5979           7         19.5474
+17.568 -  18.887    19.1500     18.3876           6         18.2275
+16.248 -  17.568    19.0000     16.8917           3         16.9076
+14.928 -  16.248    16.1250     15.5423           4         15.5878
+13.608 -  14.928    14.7500     14.2189           4         14.2679
+12.288 -  13.608    12.4000     12.8131           5         12.9480

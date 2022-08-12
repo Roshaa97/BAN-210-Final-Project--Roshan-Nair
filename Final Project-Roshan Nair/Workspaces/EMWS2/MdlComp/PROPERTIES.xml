@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?><_ROOT_  NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6"
+ ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01"
+ AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="DEFAULT" SelectionTable="TRAIN"
+ SelectionCriteria="DEFAULT" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N"
+ TargetName="mpg" ModelId="Reg" ModelDescription="Regression" ModelCriteria="Valid: Average Squared Error"
+ ForceRun="N" RunAction="Train" Component="ModelCompare" RawCreateTime="1975787985.7"
+ CreateTime="10AUG2022:21:59:46" RunId="03ff754b-d691-4c7a-8ff8-343531ea5a42" StatisticUsed="_VASE_"
+ TargetLabel="">
+<VARIABLEPROPERTIES/>
+<FILEPROPERTIES/>
+</_ROOT_>

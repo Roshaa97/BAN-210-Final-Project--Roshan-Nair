@@ -1,0 +1,134 @@
+*------------------------------------------------------------*
+User:                AutoLogon
+Date:                August 11, 2022
+Time:                17:01:47
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+INPUT      INTERVAL          6
+INPUT      NOMINAL           2
+TARGET     INTERVAL          1
+ 
+ 
+ 
+ 
+ 
+The DMINE Procedure
+ 
+      R-Squares for Target Variable: mpg
+ 
+Effect                      DF        R-Square
+ 
+Class: horsepower           84        0.795363
+Group: horsepower            7        0.781854
+AOV16: PWR_displacement     12        0.729225
+AOV16: SQRT_weight          14        0.720998
+Var:   SQRT_weight           1        0.701819
+AOV16: SQRT_cylinders        4        0.648962
+Var:   PWR_displacement      1        0.632338
+Var:   SQRT_cylinders        1        0.567524
+AOV16: model                12        0.412251
+AOV16: origin                2        0.342118
+Var:   origin                1        0.328153
+Var:   model                 1        0.326849
+AOV16: acceleration         15        0.264400
+Var:   acceleration          1        0.193154
+ 
+ 
+ 
+ 
+ 
+The DMINE Procedure
+ 
+                                     Effects Chosen for Target: mpg
+ 
+                                                                                   Sum of      Error Mean
+Effect                      DF        R-Square         F Value    p-Value         Squares          Square
+ 
+Group: horsepower            7        0.781854      158.724147     <.0001           15042       13.538412
+Var:   model                 1        0.042913       75.672561     <.0001      825.613240       10.910338
+Var:   SQRT_weight           1        0.054883      140.457814     <.0001     1055.895666        7.517529
+Var:   origin                1        0.003605        9.479350     0.0023       69.352004        7.316114
+Var:   acceleration          1        0.001260        3.338919     0.0686       24.243207        7.260796
+Var:   PWR_displacement      1        0.000637        1.692268     0.1943       12.259478        7.244407
+ 
+ 
+ 
+ 
+ 
+The DMINE Procedure
+ 
+       The Final ANOVA Table for Target: mpg
+ 
+                                              Sum of
+Effect            DF        R-Square         Squares
+ 
+Model             12        0.885153           17029
+Error            305               .     2209.544195
+Total            317               .           19239
+ 
+ 
+ 
+ 
+ 
+The DMINE Procedure
+ 
+                           Effects Not Chosen for Target: mpg
+ 
+                                                                                   Sum of
+Effect                      DF        R-Square         F Value    p-Value         Squares
+ 
+Var:   SQRT_cylinders        1        0.000174        0.462182     0.4971        3.354150
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+-------------------------------------------------------------------
+Summary of Variable Selection from Training
+-------------------------------------------------------------------
+ 
+ 
+Target Name : mpg
+Target Level : INTERVAL
+Variable Selection Model : R-Square
+ 
+Total number of inputs : 8
+Total number of used inputs : 8
+Total number of unused inputs : 0
+Total number of rejected inputs : 3
+ 
+Maximum missing percentage : 50
+NOTE: There is no rejected variable by maximum missing percentage
+ 
+Maximum class level : 100
+NOTE: 1 variable has been rejected by maximum class level
+ 
+NOTE: 1 group variable has been created
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*

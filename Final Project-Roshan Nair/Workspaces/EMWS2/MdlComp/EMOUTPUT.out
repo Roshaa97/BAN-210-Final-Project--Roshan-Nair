@@ -1,0 +1,107 @@
+*------------------------------------------------------------*
+User:                AutoLogon
+Date:                August 11, 2022
+Time:                17:02:19
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+TARGET     INTERVAL          1
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fit Statistics
+Model Selection based on Valid: Average Squared Error (_VASE_)
+ 
+                                         Valid:     Train:
+                                        Average    Average          Train:
+Selected    Model         Model         Squared    Squared    Misclassification
+ Model      Node       Description       Error      Error            Rate
+ 
+   Y        Reg       Regression         8.4540    8.88582            .
+            Neural    Neural Network    16.5206    3.30813            .
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fit Statistics Table
+Target: mpg
+ 
+Data Role=Train
+ 
+Statistics                                               Reg     Neural
+ 
+Train: Akaike's Information Criterion                 702.66     546.45
+Train: Average Squared Error                            8.89       3.31
+Train: Average Error Function                           8.89       3.31
+Selection Criterion: Valid: Average Squared Error       8.45      16.52
+Train: Degrees of Freedom for Error                   314.00     235.00
+Train: Model Degrees of Freedom                         4.00      83.00
+Train: Total Degrees of Freedom                       318.00     318.00
+Train: Divisor for ASE                                318.00     318.00
+Train: Error Function                                2825.69    1051.99
+Train: Final Prediction Error                           9.11       5.64
+Train: Maximum Absolute Error                          12.86       7.35
+Train: Misclassification Rate                            .          .
+Train: Mean Squared Error                               9.00       4.48
+Train: Sum of Frequencies                             318.00     318.00
+Train: Number of Estimated Weights                      4.00      83.00
+Train: Root Average Squared Error                       2.98       1.82
+Train: Root Final Prediction Error                      3.02       2.38
+Train: Root Mean Squared Error                          3.00       2.12
+Train: Schwarz's Bayesian Criterion                   717.71     858.70
+Train: Sum of Squared Errors                         2825.69    1051.99
+Train: Sum of Case Weights Times Freq                 318.00     318.00
+Train: Number of Wrong Classifications                   .          .
+ 
+ 
+Data Role=Valid
+ 
+Statistics                                  Reg       Neural
+ 
+Valid: Average Squared Error                8.454      16.52
+Valid: Average Error Function               8.454      16.52
+Valid: Divisor for VASE                    80.000      80.00
+Valid: Error Function                     676.324    1321.65
+Valid: Maximum Absolute Error              12.341      15.48
+Valid: Misclassification Rate                .           .
+Valid: Mean Squared Error                   8.454      16.52
+Valid: Sum of Frequencies                  80.000      80.00
+Valid: Root Average Squared Error           2.908       4.06
+Valid: Root Mean Squared Error              2.908       4.06
+Valid: Sum of Squared Errors              676.324    1321.65
+Valid: Sum of Case Weights Times Freq      80.000      80.00
+Valid: Number of Wrong Classifications       .           .
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*

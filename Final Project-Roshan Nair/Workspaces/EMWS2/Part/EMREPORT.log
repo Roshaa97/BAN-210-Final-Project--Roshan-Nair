@@ -1,0 +1,590 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "00:04:48" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Report Log
+Date:                August 11, 2022
+Time:                00:04:48
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O1X4319Q "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Part\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O1X4319Q new;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data WORK.M2F3Y4T_;
+MPRINT(EM_DIAGRAM):   set WORK.M2F3Y4T_;
+MPRINT(EM_DIAGRAM):   where(ROLE = "TARGET" or ROLE = "FREQ");
+MPRINT(EM_DIAGRAM):   run;
+21885      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+21886      * Part: Computing statistics for class target variables;
+MPRINT(EM_DIAGRAM):   * Part: Computing statistics for class target variables;
+21887      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21888      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21889      * Part: Computing statistics for interval target variables;
+MPRINT(EM_DIAGRAM):   * Part: Computing statistics for interval target variables;
+21890      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21891      proc means data=EMWS2.FIMPORT_train min max mean std noprint;
+MPRINT(EM_DIAGRAM):   proc means data=EMWS2.FIMPORT_train min max mean std noprint;
+21892      output out=WORK.Part_STATTEMP;
+MPRINT(EM_DIAGRAM):   output out=WORK.Part_STATTEMP;
+21893      var
+21894      mpg
+21895      ;
+MPRINT(EM_DIAGRAM):   var mpg ;
+21896      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: View EMWS2.FIMPORT_TRAIN.VIEW used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+NOTE: There were 398 observations read from the data set EMWS2.FIMPORT_DATA.
+NOTE: There were 398 observations read from the data set EMWS2.FIMPORT_TRAIN.
+NOTE: The data set WORK.PART_STATTEMP has 5 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.04 seconds
+      
+
+21897      proc sort data=WORK.Part_STATTEMP NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Part_STATTEMP NOTHREADS;
+21898      by _stat_;
+MPRINT(EM_DIAGRAM):   by _stat_;
+21899      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_STATTEMP.
+NOTE: The data set WORK.PART_STATTEMP has 5 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21900      proc transpose data=WORK.Part_STATTEMP out=WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   proc transpose data=WORK.Part_STATTEMP out=WORK.Part_BASICSTAT;
+21901      id _stat_;
+MPRINT(EM_DIAGRAM):   id _stat_;
+21902      copy _FREQ_;
+MPRINT(EM_DIAGRAM):   copy _FREQ_;
+21903      var
+21904      mpg
+21905      ;
+MPRINT(EM_DIAGRAM):   var mpg ;
+21906      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_STATTEMP.
+NOTE: The data set WORK.PART_BASICSTAT has 5 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21907      data _statNamelbl;
+MPRINT(EM_DIAGRAM):   data _statNamelbl;
+21908      set WORK.M2F3Y4T_(keep=NAME LABEL rename=(NAME=_NAME_ LABEL=_LABEL_));
+MPRINT(EM_DIAGRAM):   set WORK.M2F3Y4T_(keep=NAME LABEL rename=(NAME=_NAME_ LABEL=_LABEL_));
+21909      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.M2F3Y4T_.
+NOTE: The data set WORK._STATNAMELBL has 1 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21910      proc sort data=_statNamelbl;
+MPRINT(EM_DIAGRAM):   proc sort data=_statNamelbl;
+21911      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+21912      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK._STATNAMELBL.
+NOTE: The data set WORK._STATNAMELBL has 1 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21913      proc sort data=WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Part_BASICSTAT;
+21914      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+21915      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set WORK.PART_BASICSTAT has 5 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21916      data WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   data WORK.Part_BASICSTAT;
+21917      label _NAME_ = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel, NOQUOTE))" MAX = "%sysfunc(sasmsg(sashelp.dmine, rpt_maximum_vlabel, NOQUOTE))" MEAN = "%sysfunc(sasmsg(sashelp.dmine, rpt_mean_vlabel, NOQUOTE))" MIN =
+21918         "%sysfunc(sasmsg(sashelp.dmine, rpt_minimum_vlabel, NOQUOTE))" N = "%sysfunc(sasmsg(sashelp.dmine, rpt_nonMiss_vlabel, NOQUOTE))" NMiss = "%sysfunc(sasmsg(sashelp.dmine, rpt_missing_vlabel, NOQUOTE))" STD =
+21919         "%sysfunc(sasmsg(sashelp.dmine, rpt_std_vlabel, NOQUOTE))" _LABEL_= "%sysfunc(sasmsg(sashelp.dmine, rpt_label_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _NAME_ = "Variable" MAX = "Maximum" MEAN = "Mean" MIN = "Minimum" N = "Non Missing" NMiss = "Missing" STD = "Standard Deviation" _LABEL_= "Label";
+21920      merge _statnamelbl(in=_a) WORK.Part_BASICSTAT(in=_b);
+MPRINT(EM_DIAGRAM):   merge _statnamelbl(in=_a) WORK.Part_BASICSTAT(in=_b);
+21921      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+21922      where _NAME_ ne '';
+MPRINT(EM_DIAGRAM):   where _NAME_ ne '';
+21923      NMISS = _FREQ_ - N;
+MPRINT(EM_DIAGRAM):   NMISS = _FREQ_ - N;
+21924      drop _FREQ_;
+MPRINT(EM_DIAGRAM):   drop _FREQ_;
+21925      if _a and _b then output;
+MPRINT(EM_DIAGRAM):   if _a and _b then output;
+21926      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK._STATNAMELBL.
+      WHERE _NAME_ not = ' ';
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+      WHERE _NAME_ not = ' ';
+NOTE: The data set WORK.PART_BASICSTAT has 1 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.04 seconds
+      
+
+21927      data EMWS2.Part_INTRVL;
+MPRINT(EM_DIAGRAM):    data EMWS2.Part_INTRVL;
+21928      label DATA = "%sysfunc(sasmsg(sashelp.dmine, rpt_data_vlabel ,   NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label DATA = "Data";
+21929      length DATA $8;
+MPRINT(EM_DIAGRAM):   length DATA $8;
+21930      set WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   set WORK.Part_BASICSTAT;
+21931      DATA = 'DATA';
+MPRINT(EM_DIAGRAM):   DATA = 'DATA';
+21932      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set EMWS2.PART_INTRVL has 1 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21933      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+21934      * Part: Computing statistics for class target variables;
+MPRINT(EM_DIAGRAM):   * Part: Computing statistics for class target variables;
+21935      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21936      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21937      * Part: Computing statistics for interval target variables;
+MPRINT(EM_DIAGRAM):   * Part: Computing statistics for interval target variables;
+21938      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21939      proc means data=EMWS2.Part_TRAIN min max mean std noprint;
+MPRINT(EM_DIAGRAM):   proc means data=EMWS2.Part_TRAIN min max mean std noprint;
+21940      output out=WORK.Part_STATTEMP;
+MPRINT(EM_DIAGRAM):   output out=WORK.Part_STATTEMP;
+21941      var
+21942      mpg
+21943      ;
+MPRINT(EM_DIAGRAM):   var mpg ;
+21944      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: The data set WORK.PART_STATTEMP has 5 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21945      proc sort data=WORK.Part_STATTEMP NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Part_STATTEMP NOTHREADS;
+21946      by _stat_;
+MPRINT(EM_DIAGRAM):   by _stat_;
+21947      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_STATTEMP.
+NOTE: The data set WORK.PART_STATTEMP has 5 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21948      proc transpose data=WORK.Part_STATTEMP out=WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   proc transpose data=WORK.Part_STATTEMP out=WORK.Part_BASICSTAT;
+21949      id _stat_;
+MPRINT(EM_DIAGRAM):   id _stat_;
+21950      copy _FREQ_;
+MPRINT(EM_DIAGRAM):   copy _FREQ_;
+21951      var
+21952      mpg
+21953      ;
+MPRINT(EM_DIAGRAM):   var mpg ;
+21954      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_STATTEMP.
+NOTE: The data set WORK.PART_BASICSTAT has 5 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21955      data _statNamelbl;
+MPRINT(EM_DIAGRAM):   data _statNamelbl;
+21956      set WORK.M2F3Y4T_(keep=NAME LABEL rename=(NAME=_NAME_ LABEL=_LABEL_));
+MPRINT(EM_DIAGRAM):   set WORK.M2F3Y4T_(keep=NAME LABEL rename=(NAME=_NAME_ LABEL=_LABEL_));
+21957      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.M2F3Y4T_.
+NOTE: The data set WORK._STATNAMELBL has 1 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21958      proc sort data=_statNamelbl;
+MPRINT(EM_DIAGRAM):   proc sort data=_statNamelbl;
+21959      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+21960      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK._STATNAMELBL.
+NOTE: The data set WORK._STATNAMELBL has 1 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21961      proc sort data=WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Part_BASICSTAT;
+21962      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+21963      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set WORK.PART_BASICSTAT has 5 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21964      data WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   data WORK.Part_BASICSTAT;
+21965      label _NAME_ = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel, NOQUOTE))" MAX = "%sysfunc(sasmsg(sashelp.dmine, rpt_maximum_vlabel, NOQUOTE))" MEAN = "%sysfunc(sasmsg(sashelp.dmine, rpt_mean_vlabel, NOQUOTE))" MIN =
+21966         "%sysfunc(sasmsg(sashelp.dmine, rpt_minimum_vlabel, NOQUOTE))" N = "%sysfunc(sasmsg(sashelp.dmine, rpt_nonMiss_vlabel, NOQUOTE))" NMiss = "%sysfunc(sasmsg(sashelp.dmine, rpt_missing_vlabel, NOQUOTE))" STD =
+21967         "%sysfunc(sasmsg(sashelp.dmine, rpt_std_vlabel, NOQUOTE))" _LABEL_= "%sysfunc(sasmsg(sashelp.dmine, rpt_label_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _NAME_ = "Variable" MAX = "Maximum" MEAN = "Mean" MIN = "Minimum" N = "Non Missing" NMiss = "Missing" STD = "Standard Deviation" _LABEL_= "Label";
+21968      merge _statnamelbl(in=_a) WORK.Part_BASICSTAT(in=_b);
+MPRINT(EM_DIAGRAM):   merge _statnamelbl(in=_a) WORK.Part_BASICSTAT(in=_b);
+21969      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+21970      where _NAME_ ne '';
+MPRINT(EM_DIAGRAM):   where _NAME_ ne '';
+21971      NMISS = _FREQ_ - N;
+MPRINT(EM_DIAGRAM):   NMISS = _FREQ_ - N;
+21972      drop _FREQ_;
+MPRINT(EM_DIAGRAM):   drop _FREQ_;
+21973      if _a and _b then output;
+MPRINT(EM_DIAGRAM):   if _a and _b then output;
+21974      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK._STATNAMELBL.
+      WHERE _NAME_ not = ' ';
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+      WHERE _NAME_ not = ' ';
+NOTE: The data set WORK.PART_BASICSTAT has 1 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.04 seconds
+      
+
+21975      data WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):    data WORK.Part_BASICSTAT;
+21976      label DATA = "%sysfunc(sasmsg(sashelp.dmine, rpt_data_vlabel ,   NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label DATA = "Data";
+21977      length DATA $8;
+MPRINT(EM_DIAGRAM):   length DATA $8;
+21978      set WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   set WORK.Part_BASICSTAT;
+21979      DATA = "TRAIN";
+MPRINT(EM_DIAGRAM):   DATA = "TRAIN";
+21980      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set WORK.PART_BASICSTAT has 1 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21981      data EMWS2.Part_INTRVL;
+MPRINT(EM_DIAGRAM):   data EMWS2.Part_INTRVL;
+21982      set EMWS2.Part_INTRVL WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   set EMWS2.Part_INTRVL WORK.Part_BASICSTAT;
+21983      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set EMWS2.PART_INTRVL.
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set EMWS2.PART_INTRVL has 2 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+21984      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+21985      * Part: Computing statistics for class target variables;
+MPRINT(EM_DIAGRAM):   * Part: Computing statistics for class target variables;
+21986      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21987      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21988      * Part: Computing statistics for interval target variables;
+MPRINT(EM_DIAGRAM):   * Part: Computing statistics for interval target variables;
+21989      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21990      proc means data=EMWS2.Part_VALIDATE min max mean std noprint;
+MPRINT(EM_DIAGRAM):   proc means data=EMWS2.Part_VALIDATE min max mean std noprint;
+21991      output out=WORK.Part_STATTEMP;
+MPRINT(EM_DIAGRAM):   output out=WORK.Part_STATTEMP;
+21992      var
+21993      mpg
+21994      ;
+MPRINT(EM_DIAGRAM):   var mpg ;
+21995      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 80 observations read from the data set EMWS2.PART_VALIDATE.
+NOTE: The data set WORK.PART_STATTEMP has 5 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21996      proc sort data=WORK.Part_STATTEMP NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Part_STATTEMP NOTHREADS;
+21997      by _stat_;
+MPRINT(EM_DIAGRAM):   by _stat_;
+21998      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_STATTEMP.
+NOTE: The data set WORK.PART_STATTEMP has 5 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21999      proc transpose data=WORK.Part_STATTEMP out=WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   proc transpose data=WORK.Part_STATTEMP out=WORK.Part_BASICSTAT;
+22000      id _stat_;
+MPRINT(EM_DIAGRAM):   id _stat_;
+22001      copy _FREQ_;
+MPRINT(EM_DIAGRAM):   copy _FREQ_;
+22002      var
+22003      mpg
+22004      ;
+MPRINT(EM_DIAGRAM):   var mpg ;
+22005      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_STATTEMP.
+NOTE: The data set WORK.PART_BASICSTAT has 5 observations and 7 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+      
+
+22006      data _statNamelbl;
+MPRINT(EM_DIAGRAM):   data _statNamelbl;
+22007      set WORK.M2F3Y4T_(keep=NAME LABEL rename=(NAME=_NAME_ LABEL=_LABEL_));
+MPRINT(EM_DIAGRAM):   set WORK.M2F3Y4T_(keep=NAME LABEL rename=(NAME=_NAME_ LABEL=_LABEL_));
+22008      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.M2F3Y4T_.
+NOTE: The data set WORK._STATNAMELBL has 1 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22009      proc sort data=_statNamelbl;
+MPRINT(EM_DIAGRAM):   proc sort data=_statNamelbl;
+22010      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+22011      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK._STATNAMELBL.
+NOTE: The data set WORK._STATNAMELBL has 1 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22012      proc sort data=WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.Part_BASICSTAT;
+22013      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+22014      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set WORK.PART_BASICSTAT has 5 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22015      data WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   data WORK.Part_BASICSTAT;
+22016      label _NAME_ = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel, NOQUOTE))" MAX = "%sysfunc(sasmsg(sashelp.dmine, rpt_maximum_vlabel, NOQUOTE))" MEAN = "%sysfunc(sasmsg(sashelp.dmine, rpt_mean_vlabel, NOQUOTE))" MIN =
+22017         "%sysfunc(sasmsg(sashelp.dmine, rpt_minimum_vlabel, NOQUOTE))" N = "%sysfunc(sasmsg(sashelp.dmine, rpt_nonMiss_vlabel, NOQUOTE))" NMiss = "%sysfunc(sasmsg(sashelp.dmine, rpt_missing_vlabel, NOQUOTE))" STD =
+22018         "%sysfunc(sasmsg(sashelp.dmine, rpt_std_vlabel, NOQUOTE))" _LABEL_= "%sysfunc(sasmsg(sashelp.dmine, rpt_label_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _NAME_ = "Variable" MAX = "Maximum" MEAN = "Mean" MIN = "Minimum" N = "Non Missing" NMiss = "Missing" STD = "Standard Deviation" _LABEL_= "Label";
+22019      merge _statnamelbl(in=_a) WORK.Part_BASICSTAT(in=_b);
+MPRINT(EM_DIAGRAM):   merge _statnamelbl(in=_a) WORK.Part_BASICSTAT(in=_b);
+22020      by _NAME_;
+MPRINT(EM_DIAGRAM):   by _NAME_;
+22021      where _NAME_ ne '';
+MPRINT(EM_DIAGRAM):   where _NAME_ ne '';
+22022      NMISS = _FREQ_ - N;
+MPRINT(EM_DIAGRAM):   NMISS = _FREQ_ - N;
+22023      drop _FREQ_;
+MPRINT(EM_DIAGRAM):   drop _FREQ_;
+22024      if _a and _b then output;
+MPRINT(EM_DIAGRAM):   if _a and _b then output;
+22025      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK._STATNAMELBL.
+      WHERE _NAME_ not = ' ';
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+      WHERE _NAME_ not = ' ';
+NOTE: The data set WORK.PART_BASICSTAT has 1 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.04 seconds
+      
+
+22026      data WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):    data WORK.Part_BASICSTAT;
+22027      label DATA = "%sysfunc(sasmsg(sashelp.dmine, rpt_data_vlabel ,   NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label DATA = "Data";
+22028      length DATA $8;
+MPRINT(EM_DIAGRAM):   length DATA $8;
+22029      set WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   set WORK.Part_BASICSTAT;
+22030      DATA = "VALIDATE";
+MPRINT(EM_DIAGRAM):   DATA = "VALIDATE";
+22031      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set WORK.PART_BASICSTAT has 1 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+22032      data EMWS2.Part_INTRVL;
+MPRINT(EM_DIAGRAM):   data EMWS2.Part_INTRVL;
+22033      set EMWS2.Part_INTRVL WORK.Part_BASICSTAT;
+MPRINT(EM_DIAGRAM):   set EMWS2.Part_INTRVL WORK.Part_BASICSTAT;
+22034      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 2 observations read from the data set EMWS2.PART_INTRVL.
+NOTE: There were 1 observations read from the data set WORK.PART_BASICSTAT.
+NOTE: The data set EMWS2.PART_INTRVL has 3 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22035      data EMWS2.Part_INTRVL(rename=(_name_=VARIABLE));
+MPRINT(EM_DIAGRAM):    data EMWS2.Part_INTRVL(rename=(_name_=VARIABLE));
+22036      set EMWS2.Part_INTRVL;
+MPRINT(EM_DIAGRAM):   set EMWS2.Part_INTRVL;
+22037      label _NAME_ = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel, NOQUOTE))" MIN = "%sysfunc(sasmsg(sashelp.dmine, rpt_minimum_vlabel,  NOQUOTE))" MAX = "%sysfunc(sasmsg(sashelp.dmine, rpt_maximum_vlabel,  NOQUOTE))" MEAN =
+22038         "%sysfunc(sasmsg(sashelp.dmine, rpt_mean_vlabel,     NOQUOTE))" STD = "%sysfunc(sasmsg(sashelp.dmine, rpt_std_vlabel,      NOQUOTE))" N = "%sysfunc(sasmsg(sashelp.dmine, rpt_numObs_vlabel,   NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _NAME_ = "Variable" MIN = "Minimum" MAX = "Maximum" MEAN = "Mean" STD = "Standard Deviation" N = "Number of Observations";
+22039      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set EMWS2.PART_INTRVL.
+NOTE: The data set EMWS2.PART_INTRVL has 3 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.04 seconds
+      
+
+22040      proc sort data=EMWS2.Part_INTRVL NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS2.Part_INTRVL NOTHREADS;
+22041      by DATA;
+MPRINT(EM_DIAGRAM):   by DATA;
+22042      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set EMWS2.PART_INTRVL.
+NOTE: The data set EMWS2.PART_INTRVL has 3 observations and 9 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22043      %let _cn = %sysfunc(getoption(CENTER));
+22044      %let _nb = %sysfunc(getoption(NUMBER));
+22045      options nonumber nocenter;
+MPRINT(EM_DIAGRAM):   options nonumber nocenter;
+22046      proc print data=EMWS2.Part_INTRVL noobs label;
+MPRINT(EM_DIAGRAM):   proc print data=EMWS2.Part_INTRVL noobs label;
+22047      by DATA;
+MPRINT(EM_DIAGRAM):   by DATA;
+22048      title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+22049      title10 "%sysfunc(sasmsg(sashelp.dmine,  rpt_intervalTargetStats_title, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Summary Statistics for Interval Targets";
+MPRINT(EM_DIAGRAM):   run;
+22050      run;
+
+NOTE: There were 3 observations read from the data set EMWS2.PART_INTRVL.
+NOTE: The PROCEDURE PRINT printed page 3.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22051      title10;
+MPRINT(EM_DIAGRAM):   title10;
+22052      options &_cn &_nb;
+MPRINT(EM_DIAGRAM):   options NOCENTER NONUMBER;
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;

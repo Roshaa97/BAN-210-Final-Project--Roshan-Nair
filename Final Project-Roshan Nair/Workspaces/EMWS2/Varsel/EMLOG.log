@@ -1,0 +1,1676 @@
+*------------------------------------------------------------*
+User:                AutoLogon
+Date:                August 11, 2022
+Time:                17:01:47
+Site:                70192439
+Platform:            X64_8PRO
+Maintenance Release: 9.04.01M3P062415
+EM Version:          14.1
+* 
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "17:01:41" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Training Log
+Date:                August 11, 2022
+Time:                17:01:41
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O1_UEHD7 "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O1_UEHD7 new;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOG "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMLOG.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "17:01:41" );
+MPRINT(EM_DIAGRAM):   file _LOG;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                AutoLogon";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "Site:                70192439";
+MPRINT(EM_DIAGRAM):   put "Platform:            X64_8PRO";
+MPRINT(EM_DIAGRAM):   put "Maintenance Release: 9.04.01M3P062415";
+MPRINT(EM_DIAGRAM):   put "EM Version:          14.1";
+MPRINT(EM_DIAGRAM):   put "* ";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMTRAIN.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _LOG MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_LOGIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _LOGIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMSCORE.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMREPORT.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    filename _LOG;
+MPRINT(EM_DIAGRAM):    filename _OUT "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMOUTPUT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "17:01:42" );
+MPRINT(EM_DIAGRAM):   file _OUT;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                AutoLogon";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _OUT MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_OUTIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    filename _OUT;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMRUNSTATUS.xml' encoding="UTF-8" NOBOM;
+21510      proc freq data=EMWS2.Varsel_VariableSet noprint;
+MPRINT(EM_DIAGRAM):    proc freq data=EMWS2.Varsel_VariableSet noprint;
+21511      table ROLE*LEVEL/out=WORK.VarselMETA;
+MPRINT(EM_DIAGRAM):   table ROLE*LEVEL/out=WORK.VarselMETA;
+21512      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 9 observations read from the data set EMWS2.VARSEL_VARIABLESET.
+NOTE: The data set WORK.VARSELMETA has 3 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.04 seconds
+ 
+ 
+21513      proc print data=WORK.VarselMETA label noobs;
+MPRINT(EM_DIAGRAM):   proc print data=WORK.VarselMETA label noobs;
+21514      var ROLE LEVEL COUNT;
+MPRINT(EM_DIAGRAM):   var ROLE LEVEL COUNT;
+21515      label ROLE = "%sysfunc(sasmsg(sashelp.dmine, meta_role_vlabel, NOQUOTE))" LEVEL = "%sysfunc(sasmsg(sashelp.dmine, meta_level_vlabel, NOQUOTE))" COUNT = "%sysfunc(sasmsg(sashelp.dmine, rpt_count_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label ROLE = "Role" LEVEL = "Measurement Level" COUNT = "Frequency Count";
+21516      title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+21517      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_varSummary_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Variable Summary";
+MPRINT(EM_DIAGRAM):   run;
+21518      run;
+ 
+NOTE: There were 3 observations read from the data set WORK.VARSELMETA.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+ 
+ 
+21519      title10;
+MPRINT(EM_DIAGRAM):   title10;
+21520      data WORK.M3OGL3UT;
+MPRINT(EM_DIAGRAM):    data WORK.M3OGL3UT;
+21521      set WORK.M3OGL3UT;
+MPRINT(EM_DIAGRAM):   set WORK.M3OGL3UT;
+21522      if role = 'TARGET' and use = 'Y' then do;
+MPRINT(EM_DIAGRAM):   if role = 'TARGET' and use = 'Y' then do;
+21523      role = 'TARGET';
+MPRINT(EM_DIAGRAM):   role = 'TARGET';
+21524      output;
+MPRINT(EM_DIAGRAM):   output;
+21525      end;
+MPRINT(EM_DIAGRAM):   end;
+21526      if role = 'INPUT' and use in ('Y','D','N') then do;
+MPRINT(EM_DIAGRAM):   if role = 'INPUT' and use in ('Y','D','N') then do;
+21527      role = 'INPUT';
+MPRINT(EM_DIAGRAM):   role = 'INPUT';
+21528      output;
+MPRINT(EM_DIAGRAM):   output;
+21529      end;
+MPRINT(EM_DIAGRAM):   end;
+21530      if role = 'REJECTED' and use = 'Y' then do;
+MPRINT(EM_DIAGRAM):   if role = 'REJECTED' and use = 'Y' then do;
+21531      role = 'INPUT';
+MPRINT(EM_DIAGRAM):   role = 'INPUT';
+21532      output;
+MPRINT(EM_DIAGRAM):   output;
+21533      end;
+MPRINT(EM_DIAGRAM):   end;
+21534      if role = 'FREQ' and use in ('Y', 'D') then do;
+MPRINT(EM_DIAGRAM):   if role = 'FREQ' and use in ('Y', 'D') then do;
+21535      role = 'FREQ';
+MPRINT(EM_DIAGRAM):   role = 'FREQ';
+21536      output;
+MPRINT(EM_DIAGRAM):   output;
+21537      end;
+MPRINT(EM_DIAGRAM):   end;
+21538      if role = 'REJECTED' and use in ('N', 'D') then do;
+MPRINT(EM_DIAGRAM):   if role = 'REJECTED' and use in ('N', 'D') then do;
+21539      role = 'REJECTED';
+MPRINT(EM_DIAGRAM):   role = 'REJECTED';
+21540      output;
+MPRINT(EM_DIAGRAM):   output;
+21541      end;
+MPRINT(EM_DIAGRAM):   end;
+21542      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 9 observations read from the data set WORK.M3OGL3UT.
+NOTE: The data set WORK.M3OGL3UT has 9 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+ 
+ 
+21543      /*by pass cmeta */
+21544      data WORK.M3OGL3UT;
+MPRINT(EM_DIAGRAM):    data WORK.M3OGL3UT;
+21545      set WORK.M3OGL3UT;
+MPRINT(EM_DIAGRAM):   set WORK.M3OGL3UT;
+21546      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 9 observations read from the data set WORK.M3OGL3UT.
+NOTE: The data set WORK.M3OGL3UT has 9 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+ 
+ 
+21547      data WORK.M0HSTERF;
+MPRINT(EM_DIAGRAM):    data WORK.M0HSTERF;
+21548      set WORK.M0HSTERF;
+MPRINT(EM_DIAGRAM):   set WORK.M0HSTERF;
+21549      if role = 'INPUT' and use in ('N') then delete;
+MPRINT(EM_DIAGRAM):   if role = 'INPUT' and use in ('N') then delete;
+21550      if role = 'REJECTED' and use in ('N', 'D') then delete;
+MPRINT(EM_DIAGRAM):   if role = 'REJECTED' and use in ('N', 'D') then delete;
+21551      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 9 observations read from the data set WORK.M0HSTERF.
+NOTE: The data set WORK.M0HSTERF has 9 observations and 21 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+ 
+ 
+NOTE: Run proc dmdb with the specified maxlevel criterion.
+21552      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+21553      * EM: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBClass Macro ;
+21554      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21555      %macro DMDBClass;
+21556          car_name(ASC) horsepower(ASC)
+21557      %mend DMDBClass;
+21558      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21559      * EM: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBVar Macro ;
+21560      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21561      %macro DMDBVar;
+21562          PWR_displacement SQRT_cylinders SQRT_weight acceleration model mpg origin
+21563      %mend DMDBVar;
+21564      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21565      * EM: Create DMDB;
+MPRINT(EM_DIAGRAM):   * EM: Create DMDB;
+21566      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21567      libname _spdslib SPDE "C:\Users\AutoLogon\AppData\Local\Temp\SAS Temporary Files\_TD4632_NHLOAN-L-B0BD_\Prc2";
+MPRINT(EM_DIAGRAM):   libname _spdslib SPDE "C:\Users\AutoLogon\AppData\Local\Temp\SAS Temporary Files\_TD4632_NHLOAN-L-B0BD_\Prc2";
+NOTE: Libref _SPDSLIB was successfully assigned as follows:
+      Engine:        SPDE
+      Physical Name: C:\Users\AutoLogon\AppData\Local\Temp\SAS Temporary Files\_TD4632_NHLOAN-L-B0BD_\Prc2\
+21568      proc dmdb batch data=EMWS2.Impt_TRAIN
+21569      dmdbcat=WORK.EM_DMDB
+21570      maxlevel = 101
+21571      out=_spdslib.EM_DMDB
+21572      ;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=EMWS2.Impt_TRAIN dmdbcat=WORK.EM_DMDB maxlevel = 101 out=_spdslib.EM_DMDB ;
+MPRINT(EM_DIAGRAM):   class
+21573      class %DMDBClass;
+MPRINT(DMDBCLASS):   car_name(ASC) horsepower(ASC)
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   var
+21574      var %DMDBVar;
+MPRINT(DMDBVAR):   PWR_displacement SQRT_cylinders SQRT_weight acceleration model mpg origin
+MPRINT(EM_DIAGRAM):  ;
+21575      target
+21576      mpg
+21577      ;
+MPRINT(EM_DIAGRAM):   target mpg ;
+21578      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: Records processed = 318   Memory used = 511K.
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: View EMWS2.IMPT_TRAIN.VIEW used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.09 seconds
+ 
+NOTE: There were 318 observations read from the data set EMWS2.TRANS_TRAIN.
+NOTE: There were 318 observations read from the data set EMWS2.IMPT_TRAIN.
+NOTE: The data set _SPDSLIB.EM_DMDB has 318 observations and 9 variables.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.14 seconds
+      cpu time            0.15 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   quit;
+21579      quit;
+ 
+MPRINT(EM_DIAGRAM):   reset noprint;
+MPRINT(EM_DIAGRAM):   select count(*) into :_tmpnobs from EMWS2.Impt_TRAIN;
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: View EMWS2.IMPT_TRAIN.VIEW used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.07 seconds
+ 
+NOTE: There were 318 observations read from the data set EMWS2.TRANS_TRAIN.
+MPRINT(EM_DIAGRAM):   quit;
+21580      options nonotes nosource;
+MPRINT(EM_DIAGRAM):    options nonotes nosource;
+MPRINT(EM_DIAGRAM):   data WORK.M3PRZGJS;
+MPRINT(EM_DIAGRAM):   set WORK.M3PRZGJS;
+MPRINT(EM_DIAGRAM):   if role = 'INPUT' and use in ('N') then delete;
+MPRINT(EM_DIAGRAM):   if role = 'REJECTED' and use in ('N', 'D') then delete;
+MPRINT(EM_DIAGRAM):   if upcase(trim(left(name))) = "CAR_NAME" then delete;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   options notes source;
+*-------------------------------------------------------------------------------*
+* Rerun proc dmdb only with the variables in the model. ;
+*-------------------------------------------------------------------------------*
+21588      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+21589      * EM: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBClass Macro ;
+21590      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21591      %macro DMDBClass;
+21592          horsepower(ASC)
+21593      %mend DMDBClass;
+21594      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21595      * EM: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBVar Macro ;
+21596      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21597      %macro DMDBVar;
+21598          PWR_displacement SQRT_cylinders SQRT_weight acceleration model mpg origin
+21599      %mend DMDBVar;
+21600      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21601      * EM: Create DMDB;
+MPRINT(EM_DIAGRAM):   * EM: Create DMDB;
+21602      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21603      libname _spdslib SPDE "C:\Users\AutoLogon\AppData\Local\Temp\SAS Temporary Files\_TD4632_NHLOAN-L-B0BD_\Prc2";
+MPRINT(EM_DIAGRAM):   libname _spdslib SPDE "C:\Users\AutoLogon\AppData\Local\Temp\SAS Temporary Files\_TD4632_NHLOAN-L-B0BD_\Prc2";
+NOTE: Libref _SPDSLIB was successfully assigned as follows:
+      Engine:        SPDE
+      Physical Name: C:\Users\AutoLogon\AppData\Local\Temp\SAS Temporary Files\_TD4632_NHLOAN-L-B0BD_\Prc2\
+21604      proc dmdb batch data=EMWS2.Impt_TRAIN
+21605      dmdbcat=WORK.EM_DMDB
+21606      maxlevel = 101
+21607      out=_spdslib.EM_DMDB
+21608      ;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=EMWS2.Impt_TRAIN dmdbcat=WORK.EM_DMDB maxlevel = 101 out=_spdslib.EM_DMDB ;
+MPRINT(EM_DIAGRAM):   class
+21609      class %DMDBClass;
+MPRINT(DMDBCLASS):   horsepower(ASC)
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   var
+21610      var %DMDBVar;
+MPRINT(DMDBVAR):   PWR_displacement SQRT_cylinders SQRT_weight acceleration model mpg origin
+MPRINT(EM_DIAGRAM):  ;
+21611      target
+21612      mpg
+21613      ;
+MPRINT(EM_DIAGRAM):   target mpg ;
+21614      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: Records processed = 318   Memory used = 511K.
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: View EMWS2.IMPT_TRAIN.VIEW used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.10 seconds
+ 
+NOTE: There were 318 observations read from the data set EMWS2.TRANS_TRAIN.
+NOTE: There were 318 observations read from the data set EMWS2.IMPT_TRAIN.
+NOTE: The data set _SPDSLIB.EM_DMDB has 318 observations and 8 variables.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.13 seconds
+      cpu time            0.14 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   quit;
+21615      quit;
+ 
+21616      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+21617      * Varsel: Input Variables Macro ;
+MPRINT(EM_DIAGRAM):   * Varsel: Input Variables Macro ;
+21618      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21619      %macro INPUTS;
+21620                     PWR_DISPLACEMENT SQRT_CYLINDERS SQRT_WEIGHT ACCELERATION HORSEPOWER MODEL
+21621         origin
+21622      %mend INPUTS;
+21623      proc dmine data=_spdslib.EM_DMDB dmdbcat=WORK.EM_DMDB
+21624      minr2=0.005 maxrows=3000 stopr2=0.0005 NOAOV16 NOINTER USEGROUPS OUTGROUP=EMWS2.Varsel_OUTGROUP outest=EMWS2.Varsel_OUTESTDMINE outeffect=EMWS2.Varsel_OUTEFFECT outrsquare =EMWS2.Varsel_OUTRSQUARE
+21625      NOMONITOR
+21626      PSHORT
+21627      ;
+MPRINT(EM_DIAGRAM):   proc dmine data=_spdslib.EM_DMDB dmdbcat=WORK.EM_DMDB minr2=0.005 maxrows=3000 stopr2=0.0005 NOAOV16 NOINTER USEGROUPS OUTGROUP=EMWS2.Varsel_OUTGROUP outest=EMWS2.Varsel_OUTESTDMINE outeffect=EMWS2.Varsel_OUTEFFECT outrsquare
+=EMWS2.Varsel_OUTRSQUARE NOMONITOR PSHORT ;
+MPRINT(EM_DIAGRAM):   var
+21628      var %INPUTS;
+MPRINT(INPUTS):   PWR_DISPLACEMENT SQRT_CYLINDERS SQRT_WEIGHT ACCELERATION HORSEPOWER MODEL origin
+MPRINT(EM_DIAGRAM):  ;
+21629      target mpg;
+MPRINT(EM_DIAGRAM):   target mpg;
+21630      code file="C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):   code file="C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas";
+21631      code file="C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMPUBLISHSCORE.sas";
+MPRINT(EM_DIAGRAM):   code file="C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMPUBLISHSCORE.sas";
+21632      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: Checking database engine with sqluse...
+NOTE: Number of threads reset to 1 because of fewer partitions.
+ 
+Initial pass to compute R2s for all targets
+318 records read
+NOTE: The full X'X matrix has 15 rows and columns.
+ 
+Building X'X  for target: mpg rows=16 memory=0.00 meg.
+318 records read
+NOTE: External file C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas opened.
+NOTE: External file C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMPUBLISHSCORE.sas opened.
+NOTE: There were 318 observations read from the data set _SPDSLIB.EM_DMDB.
+NOTE: The data set EMWS2.VARSEL_OUTGROUP has 85 observations and 8 variables.
+NOTE: The data set EMWS2.VARSEL_OUTESTDMINE has 13 observations and 23 variables.
+NOTE: The data set EMWS2.VARSEL_OUTEFFECT has 6 observations and 6 variables.
+NOTE: The data set EMWS2.VARSEL_OUTRSQUARE has 14 observations and 4 variables.
+NOTE: The PROCEDURE DMINE printed pages 2-5.
+NOTE: PROCEDURE DMINE used (Total process time):
+      real time           0.13 seconds
+      cpu time            0.11 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   run;
+21633      quit;
+21634      /*      proc print data =EMWS2.Varsel_OUTEFFECT;      proc print data =EMWS2.Varsel_OUTRSQUARE;      */
+21635      run;
+ 
+21636      data EMWS2.Varsel_OUTESTDMINE;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_OUTESTDMINE;
+21637      set EMWS2.Varsel_OUTESTDMINE;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_OUTESTDMINE;
+21638      _uname_=upcase(_name_);
+MPRINT(EM_DIAGRAM):   _uname_=upcase(_name_);
+21639      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 13 observations read from the data set EMWS2.VARSEL_OUTESTDMINE.
+NOTE: The data set EMWS2.VARSEL_OUTESTDMINE has 13 observations and 24 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+ 
+ 
+21640      proc sql;
+MPRINT(EM_DIAGRAM):    proc sql;
+21641      create table _tmpoutgroup as select distinct VARIABLE from EMWS2.Varsel_OUTGROUP where VARTYPE='GROUP';
+MPRINT(EM_DIAGRAM):   create table _tmpoutgroup as select distinct VARIABLE from EMWS2.Varsel_OUTGROUP where VARTYPE='GROUP';
+NOTE: Table WORK._TMPOUTGROUP created, with 1 rows and 1 columns.
+ 
+21642      quit;
+MPRINT(EM_DIAGRAM):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   run;
+21643      run;
+ 
+21644      data EMWS2.Varsel_OUTAOV16;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_OUTAOV16;
+21645      set EMWS2.Varsel_OUTGROUP;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_OUTGROUP;
+21646      if STRIP(VARTYPE) eq 'AOV16' then output;
+MPRINT(EM_DIAGRAM):   if STRIP(VARTYPE) eq 'AOV16' then output;
+21647      DROP VARTYPE LEVEL LEVEL2 VARIABLE2;
+MPRINT(EM_DIAGRAM):   DROP VARTYPE LEVEL LEVEL2 VARIABLE2;
+21648      label NAME= "Name";
+MPRINT(EM_DIAGRAM):   label NAME= "Name";
+21649      label GROUP = "Group";
+MPRINT(EM_DIAGRAM):   label GROUP = "Group";
+21650      label VARIABLE = "Variable";
+MPRINT(EM_DIAGRAM):   label VARIABLE = "Variable";
+21651      label BIN = "Bin Cutoff";
+MPRINT(EM_DIAGRAM):   label BIN = "Bin Cutoff";
+21652      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 85 observations read from the data set EMWS2.VARSEL_OUTGROUP.
+NOTE: The data set EMWS2.VARSEL_OUTAOV16 has 0 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.07 seconds
+ 
+ 
+21653      data EMWS2.Varsel_OUTGINT;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_OUTGINT;
+21654      set EMWS2.Varsel_OUTGROUP;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_OUTGROUP;
+21655      if STRIP(VARTYPE) eq 'GINTER' then output;
+MPRINT(EM_DIAGRAM):   if STRIP(VARTYPE) eq 'GINTER' then output;
+21656      DROP VARTYPE BIN;
+MPRINT(EM_DIAGRAM):   DROP VARTYPE BIN;
+21657      label NAME= "Name";
+MPRINT(EM_DIAGRAM):   label NAME= "Name";
+21658      label GROUP = "Group";
+MPRINT(EM_DIAGRAM):   label GROUP = "Group";
+21659      label VARIABLE = "Variable 1";
+MPRINT(EM_DIAGRAM):   label VARIABLE = "Variable 1";
+21660      label VARIABLE2 = "Variable 2";
+MPRINT(EM_DIAGRAM):   label VARIABLE2 = "Variable 2";
+21661      label LEVEL = "Level 1";
+MPRINT(EM_DIAGRAM):   label LEVEL = "Level 1";
+21662      label LEVEL2 = "Level 2";
+MPRINT(EM_DIAGRAM):   label LEVEL2 = "Level 2";
+21663      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 85 observations read from the data set EMWS2.VARSEL_OUTGROUP.
+NOTE: The data set EMWS2.VARSEL_OUTGINT has 0 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+ 
+ 
+21664      data EMWS2.Varsel_OUTGVAR;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_OUTGVAR;
+21665      set EMWS2.Varsel_OUTGROUP;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_OUTGROUP;
+21666      if STRIP(VARTYPE) eq 'GROUP' then output;
+MPRINT(EM_DIAGRAM):   if STRIP(VARTYPE) eq 'GROUP' then output;
+21667      DROP VARTYPE BIN VARIABLE2 LEVEL2;
+MPRINT(EM_DIAGRAM):   DROP VARTYPE BIN VARIABLE2 LEVEL2;
+21668      label NAME= "Name";
+MPRINT(EM_DIAGRAM):   label NAME= "Name";
+21669      label GROUP = "Group";
+MPRINT(EM_DIAGRAM):   label GROUP = "Group";
+21670      label VARIABLE = "Variable";
+MPRINT(EM_DIAGRAM):   label VARIABLE = "Variable";
+21671      label LEVEL = "Level";
+MPRINT(EM_DIAGRAM):   label LEVEL = "Level";
+21672      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 85 observations read from the data set EMWS2.VARSEL_OUTGROUP.
+NOTE: The data set EMWS2.VARSEL_OUTGVAR has 85 observations and 4 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   quit;
+21673      quit;
+ 
+21674      options nonotes nosource;
+MPRINT(EM_DIAGRAM):    options nonotes nosource;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   file print;
+MPRINT(EM_DIAGRAM):   put ' ';
+MPRINT(EM_DIAGRAM):   put '-------------------------------------------------------------------';
+MPRINT(EM_DIAGRAM):   put "Summary of Variable Selection from Training";
+MPRINT(EM_DIAGRAM):   put '-------------------------------------------------------------------';
+MPRINT(EM_DIAGRAM):   put ' ';
+MPRINT(EM_DIAGRAM):   put ' ';
+MPRINT(EM_DIAGRAM):   put "Target Name : mpg";
+MPRINT(EM_DIAGRAM):   put "Target Level : INTERVAL";
+MPRINT(EM_DIAGRAM):   put "Variable Selection Model : R-Square";
+MPRINT(EM_DIAGRAM):   put '  ';
+MPRINT(EM_DIAGRAM):   put "Total number of inputs : 8";
+MPRINT(EM_DIAGRAM):   put "Total number of used inputs : 8";
+MPRINT(EM_DIAGRAM):   put "Total number of unused inputs : 0";
+MPRINT(EM_DIAGRAM):   put "Total number of rejected inputs : 3";
+MPRINT(EM_DIAGRAM):   put ' ';
+MPRINT(EM_DIAGRAM):   put "Maximum missing percentage : 50";
+MPRINT(EM_DIAGRAM):   put "NOTE: There is no rejected variable by maximum missing percentage";
+MPRINT(EM_DIAGRAM):   put ' ';
+MPRINT(EM_DIAGRAM):   put "Maximum class level : 100";
+MPRINT(EM_DIAGRAM):   put "NOTE: 1 variable has been rejected by maximum class level";
+MPRINT(EM_DIAGRAM):   put ' ';
+MPRINT(EM_DIAGRAM):   put "NOTE: 1 group variable has been created";
+MPRINT(EM_DIAGRAM):   options notes source;
+MPRINT(EM_DIAGRAM):   run;
+21700      run;
+ 
+NOTE: 15 lines were written to file PRINT.
+NOTE: The DATA step printed page 6.
+NOTE: DATA statement used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.09 seconds
+ 
+ 
+21701      data EMWS2.Varsel_RESULTEDVARS;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_RESULTEDVARS;
+21702      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: The data set EMWS2.VARSEL_RESULTEDVARS has 1 observations and 0 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+ 
+ 
+21703      libname _spdslib;
+MPRINT(EM_DIAGRAM):    libname _spdslib;
+NOTE: Libref _SPDSLIB has been deassigned.
+21704      *;
+MPRINT(EM_DIAGRAM):    *;
+21705      data EMWS2.Varsel_EMSCOREVAR;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_EMSCOREVAR;
+21706      length Name $32 formula $70 file $200;
+MPRINT(EM_DIAGRAM):   length Name $32 formula $70 file $200;
+21707      keep NAME Formula file;
+MPRINT(EM_DIAGRAM):   keep NAME Formula file;
+21708      name = "G_horsepower";
+MPRINT(EM_DIAGRAM):   name = "G_horsepower";
+21709      file="VARSELCODE\G_horsepower.sas";
+MPRINT(EM_DIAGRAM):   file="VARSELCODE\G_horsepower.sas";
+21710      output;
+MPRINT(EM_DIAGRAM):   output;
+21711      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: Variable formula is uninitialized.
+NOTE: The data set EMWS2.VARSEL_EMSCOREVAR has 1 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "17:01:45" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Score Log
+Date:                August 11, 2022
+Time:                17:01:45
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O3GT2WZ9 "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O3GT2WZ9 new;
+MPRINT(EM_DIAGRAM):   run;
+21813      filename emflow "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):    filename emflow "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Varsel: Scoring DATA data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21814      *------------------------------------------------------------*;
+21815      * Varsel: Scoring DATA data;
+21816      *------------------------------------------------------------*;
+21817      data EMWS2.Varsel_TRAIN
+21818      / view=EMWS2.Varsel_TRAIN
+21819      ;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_TRAIN / view=EMWS2.Varsel_TRAIN ;
+21820      set EMWS2.Impt_TRAIN
+21821      ;
+MPRINT(EM_DIAGRAM):   set EMWS2.Impt_TRAIN ;
+21822      %inc emflow;
+NOTE: %INCLUDE (level 1) file EMFLOW is file C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas.
+21823     +******************************************;
+MPRINT(EM_DIAGRAM):   ******************************************;
+21824     +*** Begin Scoring Code from PROC DMINE ***;
+MPRINT(EM_DIAGRAM):   *** Begin Scoring Code from PROC DMINE ***;
+21825     +******************************************;
+MPRINT(EM_DIAGRAM):   ******************************************;
+21826     +
+21827     +length _WARN_ $ 4;
+MPRINT(EM_DIAGRAM):   length _WARN_ $ 4;
+21828     +label _WARN_ = "Warnings";
+MPRINT(EM_DIAGRAM):   label _WARN_ = "Warnings";
+21829     +
+21830     +
+21831     +/*----G_horsepower begin----*/
+21832     +length _NORM3 $ 3;
+MPRINT(EM_DIAGRAM):   length _NORM3 $ 3;
+21833     +_NORM3 = put( horsepower , $3. );
+MPRINT(EM_DIAGRAM):   _NORM3 = put( horsepower , $3. );
+21834     +%DMNORMIP( _NORM3 )
+MPRINT(DMNORMIP):   call dmnorm(_NORM3,
+MPRINT(DMNORLEN):  32
+MPRINT(DMNORMIP):  );
+MPRINT(EM_DIAGRAM):   drop _NORM3;
+MPRINT(EM_DIAGRAM):   select(_NORM3);
+MPRINT(EM_DIAGRAM):   when('100' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('102' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('103' ) G_horsepower = 1;
+21835     +drop _NORM3;
+MPRINT(EM_DIAGRAM):   when('105' ) G_horsepower = 1;
+21836     +select(_NORM3);
+MPRINT(EM_DIAGRAM):   when('107' ) G_horsepower = 1;
+21837     +  when('100' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('108' ) G_horsepower = 1;
+21838     +  when('102' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('110' ) G_horsepower = 1;
+21839     +  when('103' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('112' ) G_horsepower = 1;
+21840     +  when('105' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('115' ) G_horsepower = 3;
+21841     +  when('107' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('116' ) G_horsepower = 3;
+21842     +  when('108' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('120' ) G_horsepower = 1;
+21843     +  when('110' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('122' ) G_horsepower = 1;
+21844     +  when('112' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('125' ) G_horsepower = 1;
+21845     +  when('115' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('129' ) G_horsepower = 0;
+21846     +  when('116' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('130' ) G_horsepower = 0;
+21847     +  when('120' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('135' ) G_horsepower = 1;
+21848     +  when('122' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('137' ) G_horsepower = 0;
+21849     +  when('125' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('138' ) G_horsepower = 0;
+21850     +  when('129' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('139' ) G_horsepower = 1;
+21851     +  when('130' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('140' ) G_horsepower = 0;
+21852     +  when('135' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('142' ) G_horsepower = 0;
+21853     +  when('137' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('145' ) G_horsepower = 0;
+21854     +  when('138' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('148' ) G_horsepower = 0;
+21855     +  when('139' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('149' ) G_horsepower = 0;
+21856     +  when('140' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('150' ) G_horsepower = 0;
+21857     +  when('142' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('153' ) G_horsepower = 0;
+21858     +  when('145' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('155' ) G_horsepower = 0;
+21859     +  when('148' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('158' ) G_horsepower = 0;
+21860     +  when('149' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('160' ) G_horsepower = 0;
+21861     +  when('150' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('165' ) G_horsepower = 0;
+21862     +  when('153' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('170' ) G_horsepower = 0;
+21863     +  when('155' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('175' ) G_horsepower = 0;
+21864     +  when('158' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('180' ) G_horsepower = 0;
+21865     +  when('160' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('190' ) G_horsepower = 0;
+21866     +  when('165' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('198' ) G_horsepower = 0;
+21867     +  when('170' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('200' ) G_horsepower = 0;
+21868     +  when('175' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('208' ) G_horsepower = 0;
+21869     +  when('180' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('210' ) G_horsepower = 0;
+21870     +  when('190' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('215' ) G_horsepower = 0;
+21871     +  when('198' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('220' ) G_horsepower = 0;
+21872     +  when('200' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('225' ) G_horsepower = 0;
+21873     +  when('208' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('46' ) G_horsepower = 3;
+21874     +  when('210' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('48' ) G_horsepower = 7;
+21875     +  when('215' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('49' ) G_horsepower = 4;
+21876     +  when('220' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('52' ) G_horsepower = 4;
+21877     +  when('225' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('53' ) G_horsepower = 5;
+21878     +  when('46' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('54' ) G_horsepower = 2;
+21879     +  when('48' ) G_horsepower = 7;
+MPRINT(EM_DIAGRAM):   when('58' ) G_horsepower = 6;
+21880     +  when('49' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('60' ) G_horsepower = 4;
+21881     +  when('52' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('61' ) G_horsepower = 5;
+21882     +  when('53' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('62' ) G_horsepower = 5;
+21883     +  when('54' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   when('63' ) G_horsepower = 6;
+21884     +  when('58' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('65' ) G_horsepower = 6;
+21885     +  when('60' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('66' ) G_horsepower = 6;
+21886     +  when('61' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('67' ) G_horsepower = 5;
+21887     +  when('62' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('68' ) G_horsepower = 5;
+21888     +  when('63' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('69' ) G_horsepower = 5;
+21889     +  when('65' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('70' ) G_horsepower = 5;
+21890     +  when('66' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('71' ) G_horsepower = 4;
+21891     +  when('67' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('72' ) G_horsepower = 1;
+21892     +  when('68' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('74' ) G_horsepower = 5;
+21893     +  when('69' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('75' ) G_horsepower = 4;
+21894     +  when('70' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('76' ) G_horsepower = 4;
+21895     +  when('71' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('77' ) G_horsepower = 3;
+21896     +  when('72' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('78' ) G_horsepower = 4;
+21897     +  when('74' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('79' ) G_horsepower = 3;
+21898     +  when('75' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('80' ) G_horsepower = 4;
+21899     +  when('76' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('82' ) G_horsepower = 4;
+21900     +  when('77' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('83' ) G_horsepower = 4;
+21901     +  when('78' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('84' ) G_horsepower = 4;
+21902     +  when('79' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('85' ) G_horsepower = 3;
+21903     +  when('80' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('86' ) G_horsepower = 3;
+21904     +  when('82' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('87' ) G_horsepower = 3;
+21905     +  when('83' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('88' ) G_horsepower = 3;
+21906     +  when('84' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('89' ) G_horsepower = 3;
+21907     +  when('85' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('90' ) G_horsepower = 3;
+21908     +  when('86' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('91' ) G_horsepower = 1;
+21909     +  when('87' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('92' ) G_horsepower = 4;
+21910     +  when('88' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('93' ) G_horsepower = 3;
+21911     +  when('89' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('94' ) G_horsepower = 2;
+21912     +  when('90' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('95' ) G_horsepower = 2;
+21913     +  when('91' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('96' ) G_horsepower = 4;
+21914     +  when('92' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('97' ) G_horsepower = 2;
+21915     +  when('93' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('98' ) G_horsepower = 1;
+21916     +  when('94' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   when('?' ) G_horsepower = 4;
+21917     +  when('95' ) G_horsepower = 2;
+21918     +  when('96' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   otherwise substr(_WARN_, 2, 1) = 'U';
+21919     +  when('97' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   end;
+21920     +  when('98' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   label G_horsepower= "Grouped Levels for  horsepower";
+21921     +  when('?' ) G_horsepower = 4;
+21922     +  otherwise substr(_WARN_, 2, 1) = 'U';
+21923     +end;
+21924     +label G_horsepower="Grouped Levels for  horsepower";
+MPRINT(EM_DIAGRAM):   ****************************************;
+MPRINT(EM_DIAGRAM):   *** End Scoring Code from PROC DMINE ***;
+21925     +/*----horsepower end----*/
+MPRINT(EM_DIAGRAM):   ****************************************;
+21926     +
+21927     +
+21928     +****************************************;
+21929     +*** End Scoring Code from PROC DMINE ***;
+21930     +****************************************;
+NOTE: %INCLUDE (level 1) ending.
+MPRINT(EM_DIAGRAM):   run;
+21931      run;
+ 
+NOTE: DATA STEP view saved on file EMWS2.VARSEL_TRAIN.
+NOTE: A stored DATA STEP view cannot run under a different operating system.
+NOTE: View EMWS2.IMPT_TRAIN.VIEW used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.07 seconds
+ 
+NOTE: DATA statement used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.11 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   quit;
+21932      quit;
+21933      filename emflow;
+MPRINT(EM_DIAGRAM):   filename emflow;
+NOTE: Fileref EMFLOW has been deassigned.
+21934      filename emflow "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):    filename emflow "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas";
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Varsel: Scoring VALIDATE data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21935      *------------------------------------------------------------*;
+21936      * Varsel: Scoring VALIDATE data;
+21937      *------------------------------------------------------------*;
+21938      data EMWS2.Varsel_VALIDATE
+21939      / view=EMWS2.Varsel_VALIDATE
+21940      ;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_VALIDATE / view=EMWS2.Varsel_VALIDATE ;
+21941      set EMWS2.Impt_VALIDATE
+21942      ;
+MPRINT(EM_DIAGRAM):   set EMWS2.Impt_VALIDATE ;
+21943      %inc emflow;
+NOTE: %INCLUDE (level 1) file EMFLOW is file C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMFLOWSCORE.sas.
+21944     +******************************************;
+MPRINT(EM_DIAGRAM):   ******************************************;
+21945     +*** Begin Scoring Code from PROC DMINE ***;
+MPRINT(EM_DIAGRAM):   *** Begin Scoring Code from PROC DMINE ***;
+21946     +******************************************;
+MPRINT(EM_DIAGRAM):   ******************************************;
+21947     +
+21948     +length _WARN_ $ 4;
+MPRINT(EM_DIAGRAM):   length _WARN_ $ 4;
+21949     +label _WARN_ = "Warnings";
+MPRINT(EM_DIAGRAM):   label _WARN_ = "Warnings";
+21950     +
+21951     +
+21952     +/*----G_horsepower begin----*/
+21953     +length _NORM3 $ 3;
+MPRINT(EM_DIAGRAM):   length _NORM3 $ 3;
+21954     +_NORM3 = put( horsepower , $3. );
+MPRINT(EM_DIAGRAM):   _NORM3 = put( horsepower , $3. );
+21955     +%DMNORMIP( _NORM3 )
+MPRINT(DMNORMIP):   call dmnorm(_NORM3,
+MPRINT(DMNORLEN):  32
+MPRINT(DMNORMIP):  );
+21956     +drop _NORM3;
+MPRINT(EM_DIAGRAM):   drop _NORM3;
+21957     +select(_NORM3);
+MPRINT(EM_DIAGRAM):   select(_NORM3);
+21958     +  when('100' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('100' ) G_horsepower = 1;
+21959     +  when('102' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('102' ) G_horsepower = 1;
+21960     +  when('103' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('103' ) G_horsepower = 1;
+21961     +  when('105' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('105' ) G_horsepower = 1;
+21962     +  when('107' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('107' ) G_horsepower = 1;
+21963     +  when('108' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('108' ) G_horsepower = 1;
+21964     +  when('110' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('110' ) G_horsepower = 1;
+21965     +  when('112' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('112' ) G_horsepower = 1;
+21966     +  when('115' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('115' ) G_horsepower = 3;
+21967     +  when('116' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('116' ) G_horsepower = 3;
+21968     +  when('120' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('120' ) G_horsepower = 1;
+21969     +  when('122' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('122' ) G_horsepower = 1;
+21970     +  when('125' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('125' ) G_horsepower = 1;
+21971     +  when('129' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('129' ) G_horsepower = 0;
+21972     +  when('130' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('130' ) G_horsepower = 0;
+21973     +  when('135' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('135' ) G_horsepower = 1;
+21974     +  when('137' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('137' ) G_horsepower = 0;
+21975     +  when('138' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('138' ) G_horsepower = 0;
+21976     +  when('139' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('139' ) G_horsepower = 1;
+21977     +  when('140' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('140' ) G_horsepower = 0;
+21978     +  when('142' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('142' ) G_horsepower = 0;
+21979     +  when('145' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('145' ) G_horsepower = 0;
+21980     +  when('148' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('148' ) G_horsepower = 0;
+21981     +  when('149' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('149' ) G_horsepower = 0;
+21982     +  when('150' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('150' ) G_horsepower = 0;
+21983     +  when('153' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('153' ) G_horsepower = 0;
+21984     +  when('155' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('155' ) G_horsepower = 0;
+21985     +  when('158' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('158' ) G_horsepower = 0;
+21986     +  when('160' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('160' ) G_horsepower = 0;
+21987     +  when('165' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('165' ) G_horsepower = 0;
+21988     +  when('170' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('170' ) G_horsepower = 0;
+21989     +  when('175' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('175' ) G_horsepower = 0;
+21990     +  when('180' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('180' ) G_horsepower = 0;
+21991     +  when('190' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('190' ) G_horsepower = 0;
+21992     +  when('198' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('198' ) G_horsepower = 0;
+21993     +  when('200' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('200' ) G_horsepower = 0;
+21994     +  when('208' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('208' ) G_horsepower = 0;
+21995     +  when('210' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('210' ) G_horsepower = 0;
+21996     +  when('215' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('215' ) G_horsepower = 0;
+21997     +  when('220' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('220' ) G_horsepower = 0;
+21998     +  when('225' ) G_horsepower = 0;
+MPRINT(EM_DIAGRAM):   when('225' ) G_horsepower = 0;
+21999     +  when('46' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('46' ) G_horsepower = 3;
+22000     +  when('48' ) G_horsepower = 7;
+MPRINT(EM_DIAGRAM):   when('48' ) G_horsepower = 7;
+22001     +  when('49' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('49' ) G_horsepower = 4;
+22002     +  when('52' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('52' ) G_horsepower = 4;
+22003     +  when('53' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('53' ) G_horsepower = 5;
+22004     +  when('54' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   when('54' ) G_horsepower = 2;
+22005     +  when('58' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('58' ) G_horsepower = 6;
+22006     +  when('60' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('60' ) G_horsepower = 4;
+22007     +  when('61' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('61' ) G_horsepower = 5;
+22008     +  when('62' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('62' ) G_horsepower = 5;
+22009     +  when('63' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('63' ) G_horsepower = 6;
+22010     +  when('65' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('65' ) G_horsepower = 6;
+22011     +  when('66' ) G_horsepower = 6;
+MPRINT(EM_DIAGRAM):   when('66' ) G_horsepower = 6;
+22012     +  when('67' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('67' ) G_horsepower = 5;
+22013     +  when('68' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('68' ) G_horsepower = 5;
+22014     +  when('69' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('69' ) G_horsepower = 5;
+22015     +  when('70' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('70' ) G_horsepower = 5;
+22016     +  when('71' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('71' ) G_horsepower = 4;
+22017     +  when('72' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('72' ) G_horsepower = 1;
+22018     +  when('74' ) G_horsepower = 5;
+MPRINT(EM_DIAGRAM):   when('74' ) G_horsepower = 5;
+22019     +  when('75' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('75' ) G_horsepower = 4;
+22020     +  when('76' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('76' ) G_horsepower = 4;
+22021     +  when('77' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('77' ) G_horsepower = 3;
+22022     +  when('78' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('78' ) G_horsepower = 4;
+22023     +  when('79' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('79' ) G_horsepower = 3;
+22024     +  when('80' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('80' ) G_horsepower = 4;
+22025     +  when('82' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('82' ) G_horsepower = 4;
+22026     +  when('83' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('83' ) G_horsepower = 4;
+22027     +  when('84' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('84' ) G_horsepower = 4;
+22028     +  when('85' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('85' ) G_horsepower = 3;
+22029     +  when('86' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('86' ) G_horsepower = 3;
+22030     +  when('87' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('87' ) G_horsepower = 3;
+22031     +  when('88' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('88' ) G_horsepower = 3;
+22032     +  when('89' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('89' ) G_horsepower = 3;
+22033     +  when('90' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('90' ) G_horsepower = 3;
+22034     +  when('91' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('91' ) G_horsepower = 1;
+22035     +  when('92' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('92' ) G_horsepower = 4;
+22036     +  when('93' ) G_horsepower = 3;
+MPRINT(EM_DIAGRAM):   when('93' ) G_horsepower = 3;
+22037     +  when('94' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   when('94' ) G_horsepower = 2;
+22038     +  when('95' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   when('95' ) G_horsepower = 2;
+22039     +  when('96' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('96' ) G_horsepower = 4;
+22040     +  when('97' ) G_horsepower = 2;
+MPRINT(EM_DIAGRAM):   when('97' ) G_horsepower = 2;
+22041     +  when('98' ) G_horsepower = 1;
+MPRINT(EM_DIAGRAM):   when('98' ) G_horsepower = 1;
+22042     +  when('?' ) G_horsepower = 4;
+MPRINT(EM_DIAGRAM):   when('?' ) G_horsepower = 4;
+22043     +  otherwise substr(_WARN_, 2, 1) = 'U';
+MPRINT(EM_DIAGRAM):   otherwise substr(_WARN_, 2, 1) = 'U';
+22044     +end;
+MPRINT(EM_DIAGRAM):   end;
+22045     +label G_horsepower="Grouped Levels for  horsepower";
+MPRINT(EM_DIAGRAM):   label G_horsepower= "Grouped Levels for  horsepower";
+22046     +/*----horsepower end----*/
+22047     +
+22048     +
+22049     +****************************************;
+MPRINT(EM_DIAGRAM):   ****************************************;
+22050     +*** End Scoring Code from PROC DMINE ***;
+MPRINT(EM_DIAGRAM):   *** End Scoring Code from PROC DMINE ***;
+22051     +****************************************;
+MPRINT(EM_DIAGRAM):   ****************************************;
+NOTE: %INCLUDE (level 1) ending.
+MPRINT(EM_DIAGRAM):   run;
+22052      run;
+ 
+NOTE: DATA STEP view saved on file EMWS2.VARSEL_VALIDATE.
+NOTE: A stored DATA STEP view cannot run under a different operating system.
+NOTE: View EMWS2.IMPT_VALIDATE.VIEW used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+ 
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.09 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   quit;
+22053      quit;
+22054      filename emflow;
+MPRINT(EM_DIAGRAM):   filename emflow;
+NOTE: Fileref EMFLOW has been deassigned.
+22055      options nosource;
+MPRINT(EM_DIAGRAM):    options nosource;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_R2DS;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_OUTRSQUARE;
+MPRINT(EM_DIAGRAM):   label Effect = "Effect";
+MPRINT(EM_DIAGRAM):   label DF = "Degree of Freedom";
+MPRINT(EM_DIAGRAM):   label RSquare = "R-Square";
+MPRINT(EM_DIAGRAM):   rename RSquare = R2;
+MPRINT(EM_DIAGRAM):   keep Effect DF RSquare;
+MPRINT(EM_DIAGRAM):   if Type="AOV16" then delete;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 14 observations read from the data set EMWS2.VARSEL_OUTRSQUARE.
+NOTE: The data set EMWS2.VARSEL_R2DS has 8 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   proc sort data = EMWS2.Varsel_R2DS;
+MPRINT(EM_DIAGRAM):   by descending R2;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 8 observations read from the data set EMWS2.VARSEL_R2DS.
+NOTE: The data set EMWS2.VARSEL_R2DS has 8 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_EFFECTDS;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_OUTEFFECT;
+MPRINT(EM_DIAGRAM):   label RSquare = "Sequential R-Square";
+MPRINT(EM_DIAGRAM):   label Effect = "Effect";
+MPRINT(EM_DIAGRAM):   label DF = "Degree of Freedom";
+MPRINT(EM_DIAGRAM):   Rename RSquare = R2;
+MPRINT(EM_DIAGRAM):   keep Effect DF RSquare;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 6 observations read from the data set EMWS2.VARSEL_OUTEFFECT.
+NOTE: The data set EMWS2.VARSEL_EFFECTDS has 6 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):   proc sort data = EMWS2.Varsel_EFFECTDS;
+MPRINT(EM_DIAGRAM):   by descending R2;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 6 observations read from the data set EMWS2.VARSEL_EFFECTDS.
+NOTE: The data set EMWS2.VARSEL_EFFECTDS has 6 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Varsel: Computing metadata for TRAIN data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+ 
+NOTE: View EMWS2.VARSEL_TRAIN.VIEW used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.11 seconds
+ 
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * &nodeid: Computing Metadata for TRAIN data;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   filename _delta "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\CDELTA_TRAIN.sas";
+MPRINT(EMADVISECOLUMNS):   proc display c=sashelp.emmeta.advisecolumns.scl;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    options validvarname=any;
+MPRINT(EMADVISECOLUMNS):   proc contents data=EMWS2.Varsel_TRAIN out=_tempAdvisor noprint;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):   options validvarname=V7;
+MPRINT(EMADVISECOLUMNS):    data _null_;
+MPRINT(EMADVISECOLUMNS):   dsid = open('EMWS2.Varsel_TRAIN');
+MPRINT(EMADVISECOLUMNS):   call symput('_dsidTable', strip(put(dsid, best.)));
+MPRINT(EMADVISECOLUMNS):   if dsid then do;
+MPRINT(EMADVISECOLUMNS):   call symput('_engineTable', attrc(dsid, 'ENGINE'));
+MPRINT(EMADVISECOLUMNS):   dsid = close(dsid);
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    proc contents data=EMWS2.Varsel_TRAIN out=WORK.M1B87XF4 noprint;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M1B87XF4;
+MPRINT(EMADVISECOLUMNS):   length NAME $ 64 TYPE $ 1 LABEL $ 200 FORMAT $ 36 INFORMAT $36 INDEX $ 1 INDEXTYPE $ 9;
+MPRINT(EMADVISECOLUMNS):   label NAME =;
+MPRINT(EMADVISECOLUMNS):   set WORK.M1B87XF4(keep=name type length label format formatl formatd informat informl informd idxusage rename=(type=itype));
+MPRINT(EMADVISECOLUMNS):   if itype = 1 then type = 'N';
+MPRINT(EMADVISECOLUMNS):   else type = 'C';
+MPRINT(EMADVISECOLUMNS):   if formatl > 0 then do;
+MPRINT(EMADVISECOLUMNS):   if format ne '' then do;
+MPRINT(EMADVISECOLUMNS):   if type='N' then format = strip(format)!!strip(put(formatl, best12.))!!'.'!!strip(put(formatd, best12.));
+MPRINT(EMADVISECOLUMNS):   else format = strip(format)!!strip(put(formatl, best12.))!!'.';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else format = strip(put(formatl, best12.))!!'.'!!strip(put(formatd, best12.));
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if format ne '' then format = strip(format)!!'.';
+MPRINT(EMADVISECOLUMNS):   if informl > 0 then do;
+MPRINT(EMADVISECOLUMNS):   if informat ne ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if type='N' then informat = strip(informat)!!strip(put(informl, best12.))!!'.'!!strip(put(informd, best12.));
+MPRINT(EMADVISECOLUMNS):   else informat = strip(informat)!!strip(put(informl, best12.))!!'.';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else informat = strip(put(informl, best12.))!!'.'!!strip(put(informd, best12.));
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if informat ne '' then informat = strip(informat)!!'.';
+MPRINT(EMADVISECOLUMNS):   if idxusage = 'NONE' then index ="N";
+MPRINT(EMADVISECOLUMNS):   else index = "Y";
+MPRINT(EMADVISECOLUMNS):   indextype = idxusage;
+MPRINT(EMADVISECOLUMNS):   drop idxusage itype formatl formatd informl informd;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M1B87XF4;
+MPRINT(EMADVISECOLUMNS):   length UNAME $64;
+MPRINT(EMADVISECOLUMNS):   set WORK.M1B87XF4;
+MPRINT(EMADVISECOLUMNS):   UNAME = upcase(NAME);
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    proc sort data=WORK.M1PPHF7G NOTHREADS;
+MPRINT(EMADVISECOLUMNS):   by UNAME;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   drop UNAME;
+MPRINT(EMADVISECOLUMNS):   set WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M0ZHOZXU(keep=NAME ATTR);
+MPRINT(EMADVISECOLUMNS):   length ATTR $ 20;
+MPRINT(EMADVISECOLUMNS):   set WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   if level ne "INTERVAL" then do;
+MPRINT(EMADVISECOLUMNS):   if order = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'ORDER';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if format ne ' ' and formattype = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'FORMATTYPE';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if role = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'ROLE';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if level = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'LEVEL';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if type = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'TYPE';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if index = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'INDEX';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if report = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   attr = 'REPORT';
+MPRINT(EMADVISECOLUMNS):   output;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):   proc sort NOTHREADS;
+MPRINT(EMADVISECOLUMNS):   by attr;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   length NAME $64 ROLE $ 32 LEVEL $ 10 ORDER $ 8 CREATOR $32 FORMATTYPE $ 10 FAMILY $ 10 LOWERLIMIT 8 UPPERLIMIT 8 REPORT $1 DISTRIBUTION $ 20 COMMENT $64;
+MPRINT(EMADVISECOLUMNS):   length levelAssigned 8 roleAssigned 8 PRICE 8;
+MPRINT(EMADVISECOLUMNS):   set WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   if formattype = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if format ne ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if type = 'N' then do;
+MPRINT(EMADVISECOLUMNS):   pos = indexc(format,'.1234567890');
+MPRINT(EMADVISECOLUMNS):   if pos > 1 then tempfmt = substr(format,1, pos-1);
+MPRINT(EMADVISECOLUMNS):   else tempfmt = ' ';
+MPRINT(EMADVISECOLUMNS):   flen = length(tempfmt);
+MPRINT(EMADVISECOLUMNS):   select;
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("DATE" "DAY" "DDMMYY" "DOWNAME" "JULDAY" "JULIAN" "MMDDYY" "MMDDYYD" "MMDDYYC" "MMDDYYN" "MMDDYYP" "MMDDYYS" "MONNAME" "MONTH" "MONYY" "NENGO" "QTR" "QTRR" "WEEKDATE" "WEEKDATX" "WEEKDAY" "WORDDATE" "WORDDATX"
+"YEAR" "YYMMDD" "YYMON" "YYMMDDC" "YYMMDDD" "YYMMDDN" "YYMMDDP" "YYMMDDS" "EURDFDE" "NJDATE" "NLDATE" "EURDFDD" "EURDFDWN" "EURDFMN" "EURDFMY" "EURDFWK" "EURDFWKX" "EURDFWDX" "EURDFDN" "EURDFDE" )) formattype = 'DATE';
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("DATETIME" "EURDFDT" "TOD" )) formattype = "DATETIME";
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("HHMM" "HOUR" "MMSS" "TIME" "TIMEAMPM" )) formattype = "TIME";
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("COMMA" "COMMAX" "DOLLAR" "DOLLARX" "E" "FRACT" "NEGPAREN" "PERCENT")) formattype="QUANTITY";
+MPRINT(EMADVISECOLUMNS):   when(tempfmt in ("BINARY" "HEX" "IB" "OCTAL" "PD" "PIB" "PK" "RB" "SSN" "Z" "ZD")) formattype = "CODING";
+MPRINT(EMADVISECOLUMNS):   otherwise do;
+MPRINT(EMADVISECOLUMNS):   formattype = "USER";
+MPRINT(EMADVISECOLUMNS):   if compress(tempfmt, '0123456789.', '') = '' then formattype='NUM';
+MPRINT(EMADVISECOLUMNS):   else if substr(tempfmt, 1, 6)='NLDATE' then formattype = "DATE";
+MPRINT(EMADVISECOLUMNS):   else if substr(tempfmt, 1, 6)='NLDATM' then formattype = "DATETIME";
+MPRINT(EMADVISECOLUMNS):   else if substr(tempfmt, 1, 4)='NLTIM' then formattype = "TIME";
+MPRINT(EMADVISECOLUMNS):   else if flen >= 4 then do;
+MPRINT(EMADVISECOLUMNS):   str = substr(tempfmt,1,4);
+MPRINT(EMADVISECOLUMNS):   if str in ("MMYY" "YYMM" "YYQR") then formattype ="DATE";
+MPRINT(EMADVISECOLUMNS):   else if str = "S370" then formattype = "CODING";
+MPRINT(EMADVISECOLUMNS):   else if str = "BEST" then formattype = "NUM";
+MPRINT(EMADVISECOLUMNS):   drop str;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if flen >=3 and substr(tempfmt,1,3) = "YYQ" then formatType = "DATE";
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   drop flen tempfmt pos;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else do;
+MPRINT(EMADVISECOLUMNS):   formatType = "CATEGORY";
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if formatType = "NUM" then do;
+MPRINT(EMADVISECOLUMNS):   if index = "Y" then formatType = "DISCRETE";
+MPRINT(EMADVISECOLUMNS):   else formatType = "QUANTITY";
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if level = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if formatType in ("CATEGORY", "CODING", "ID") or type = "C" then level = "NOMINAL";
+MPRINT(EMADVISECOLUMNS):   else level = "INTERVAL";
+MPRINT(EMADVISECOLUMNS):   levelAssigned = 1;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else level = upcase(level);
+MPRINT(EMADVISECOLUMNS):   if role = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   length name_prefix $8 _uname $64;
+MPRINT(EMADVISECOLUMNS):   drop name_prefix _uname _freqflag;
+MPRINT(EMADVISECOLUMNS):   retain _freqflag;
+MPRINT(EMADVISECOLUMNS):   if LENGTH> 80 then ROLE = 'TEXT';
+MPRINT(EMADVISECOLUMNS):   _uname = upcase(NAME);
+MPRINT(EMADVISECOLUMNS):   select(_uname);
+MPRINT(EMADVISECOLUMNS):   when('_PARTIND_') do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'ID';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   when('_WARN_') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_SEGMENT') do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'SEGMENT';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   when('_NODE_') do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'SEGMENT';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   when('EM_CLASSTARGET') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_VALUETARGET') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_PREDICTION') ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   when('EM_PROBABILITY') ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   when('EM_EVENTPROBABILITY') ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   when('EM_CLASSIFICATION') ROLE = 'CLASSIFICATION';
+MPRINT(EMADVISECOLUMNS):   when('EM_DECISION') ROLE = 'DECISION';
+MPRINT(EMADVISECOLUMNS):   when('EM_PROFIT') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_LOSS') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('EM_ROI') ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   when('URI') ROLE = 'URL';
+MPRINT(EMADVISECOLUMNS):   when('FILTERED') ROLE = 'TEXTLOC';
+MPRINT(EMADVISECOLUMNS):   otherwise do;
+MPRINT(EMADVISECOLUMNS):   if upcase(NAME) =: 'ZIP' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'REJECTED';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   COMMENT = 'Rejected by: Exceed the maximum class level of %s';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if upcase(NAME) in('FREQ', 'FREQUENCY') then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'FREQ';
+MPRINT(EMADVISECOLUMNS):   if TYPE = 'C' then ROLE = 'INPUT';
+MPRINT(EMADVISECOLUMNS):   else if _freqflag =1 then ROLE='REJECTED';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else do;
+MPRINT(EMADVISECOLUMNS):   name_prefix = scan(_uname, 1, '_');
+MPRINT(EMADVISECOLUMNS):   if scan(_uname, 2, '_') = '' then name_prefix='';
+MPRINT(EMADVISECOLUMNS):   if name_prefix in('F', 'I', 'U') then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'CLASSIFICATION';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('Q') then ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('P', 'V') then ROLE = 'PREDICT';
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('R', 'RS', 'RT', 'RD', 'RDS', 'RDT', 'RA', 'RAS', 'RAT') then ROLE = 'RESIDUAL';
+MPRINT(EMADVISECOLUMNS):   else if name_prefix ='D' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'DECISION';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if name_prefix ='B' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'SEGMENT';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else if name_prefix in('EP', 'BP', 'CP', 'EL', 'CL', 'BL', 'W', 'ROI', 'IC') then ROLE = 'ASSESS';
+MPRINT(EMADVISECOLUMNS):   else do;
+MPRINT(EMADVISECOLUMNS):   array _ROLE_ (19) $32 _TEMPORARY_ ('ASSESS','CLASSIFICATION','CENSOR', 'COST', 'CROSSID', 'DECISION', 'ID','INPUT', 'LABEL', 'MISSING','PREDICT','REFERRER','REJECTED', 'RESIDUAL','SEGMENT', 'SEQUENCE','TARGET', 'TEXT', 'TIMEID');
+MPRINT(EMADVISECOLUMNS):   drop _found_ i;
+MPRINT(EMADVISECOLUMNS):   _found_=0;
+MPRINT(EMADVISECOLUMNS):   do i=1 to 19 until(_found_=1);
+MPRINT(EMADVISECOLUMNS):   if index(_uname, trim(_ROLE_{i}))=1 then do;
+MPRINT(EMADVISECOLUMNS):   ROLE=_ROLE_{i};
+MPRINT(EMADVISECOLUMNS):   if ROLE = 'ID' then LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   else if ROLE = 'SEGMENT' then LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   else if ROLE = 'TIMEID' and TYPE='N' then LEVEL = 'INTERVAL';
+MPRINT(EMADVISECOLUMNS):   _found_=1;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if length(_uname)>2 then do;
+MPRINT(EMADVISECOLUMNS):   if substr(reverse(trim(_uname)), 1, 3) = 'DI_' then do;
+MPRINT(EMADVISECOLUMNS):   ROLE = 'ID';
+MPRINT(EMADVISECOLUMNS):   LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if ROLE='FREQ' then _freqflag=1;
+MPRINT(EMADVISECOLUMNS):   else if ROLE = 'CLASSIFICATION' then LEVEL = 'NOMINAL';
+MPRINT(EMADVISECOLUMNS):   if symexist('RATEMKG_ROLE') then do;
+MPRINT(EMADVISECOLUMNS):   if upcase(symget('RATEMKG_ROLE')) in('Y', 'YES') then do;
+MPRINT(EMADVISECOLUMNS):   if _uname =: 'POLICY' then ROLE = 'POLICYID';
+MPRINT(EMADVISECOLUMNS):   else if _uname in ('PARTITION', '_PARTIND_') then ROLE = 'PARTITION';
+MPRINT(EMADVISECOLUMNS):   else if type = 'N' then do;
+MPRINT(EMADVISECOLUMNS):   if _uname = 'EXPOSURE' then ROLE = 'EXPOSURE';
+MPRINT(EMADVISECOLUMNS):   else if _uname = 'YEAR' then ROLE = 'YEAR';
+MPRINT(EMADVISECOLUMNS):   else if _uname = 'WEIGHT' then ROLE = 'WEIGHT';
+MPRINT(EMADVISECOLUMNS):   else if _uname = 'OFFSET' then ROLE = 'OFFSET';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   if role = ' ' then do;
+MPRINT(EMADVISECOLUMNS):   if formattype in('DATE', 'DATETIME', 'TIME') then role = 'TIMEID';
+MPRINT(EMADVISECOLUMNS):   else role = 'INPUT';
+MPRINT(EMADVISECOLUMNS):   roleAssigned = 1;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   else role = upcase(role);
+MPRINT(EMADVISECOLUMNS):   if REPORT = '' then REPORT = 'N';
+MPRINT(EMADVISECOLUMNS):   if symexist('dmwb_product') then do;
+MPRINT(EMADVISECOLUMNS):   if upcase(symget('dmwb_product')) = 'FACTORYMINER_DATASOURCE' then do;
+MPRINT(EMADVISECOLUMNS):   if ROLE ^in('INPUT', 'TARGET', 'REJECTED', 'SEGMENT', 'FREQ', 'ID', 'KEY') then ROLE='REJECTED';
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   end;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):    data WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   set WORK.M1PPHF7G;
+MPRINT(EMADVISECOLUMNS):   label NAME = "Variable Name" TYPE = "Type" ROLE = "Role" LEVEL= "Measurement Level" ORDER= "Order" CREATOR= "Creator" FORMATTYPE= "Format Type" FAMILY= "Family" DISTRIBUTION= "Distribution" PRICE= "Price" LOWERLIMIT= "Lower
+limit" UPPERLIMIT= "Upper Limit" REPORT= "Report" COMMENT= "Comment" INDEX= "Index" INDEXTYPE= "IndexType" LABEL= "Label" LENGTH= "Length";
+MPRINT(EMADVISECOLUMNS):   drop levelAssigned roleAssigned;
+MPRINT(EMADVISECOLUMNS):   run;
+MPRINT(EMADVISECOLUMNS):
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.COLUMNMETA;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * &nodeid: Merge incoming metadata;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   proc contents data=EMWS2.Impt_TRAIN noprint out=_temp2(keep=NAME);
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=_temp2;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS2.Impt_CMeta_TRAIN out=_temp;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_CMeta_TRAIN;
+MPRINT(EM_DIAGRAM):   merge WORK.COLUMNMETA(in=_a) _temp2(in=_b) _temp(drop=FORMAT INFORMAT LENGTH INDEX INDEXTYPE in=_c) end=_eof_;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   if (^_a and _b) or (^_c and _a and _b) then delete;
+MPRINT(EM_DIAGRAM):   if ^_b then CREATOR = "Varsel";
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Varsel: Apply Delta Code;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   if upcase(name) = 'SQRT_CYLINDERS' then role = 'REJECTED';
+MPRINT(EM_DIAGRAM):   else if upcase(name) = 'CAR_NAME' then role = 'REJECTED';
+MPRINT(EM_DIAGRAM):   else if upcase(name) = 'HORSEPOWER' then role = 'REJECTED';
+MPRINT(EM_DIAGRAM):   if upcase(strip(name)) = "G_HORSEPOWER" then level = "NOMINAL";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _delta;
+NOTE: View EMWS2.VARSEL_TRAIN.VIEW used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.11 seconds
+ 
+NOTE: View EMWS2.VARSEL_VALIDATE.VIEW used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.10 seconds
+ 
+MPRINT(EM_DIAGRAM):    options nonotes nosource;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_RESULTEDVARS(keep = NAME ROLE LEVEL TYPE LABEL);
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_CMETA_TRAIN;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data EMWS2.Varsel_RESULTEDVARS;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_RESULTEDVARS;
+MPRINT(EM_DIAGRAM):   length COMMENT $300;
+MPRINT(EM_DIAGRAM):   label COMMENT = "Reasons for Rejection";
+MPRINT(EM_DIAGRAM):   if upcase(name) = 'SQRT_CYLINDERS' then do;
+MPRINT(EM_DIAGRAM):   comment = "Varsel:Small R-square value";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   else if upcase(name) = 'CAR_NAME' then do;
+MPRINT(EM_DIAGRAM):   comment = "Varsel:Exceed the maximum class level of 100";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   else if upcase(name) = 'HORSEPOWER' then do;
+MPRINT(EM_DIAGRAM):   comment = "Varsel:Small R-square value, Group variable preferred";
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_DIAGRAM):   if ROLE not in ('REJECTED' 'INPUT') then delete;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_UNUSEDINPUTVARS;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_RESULTEDVARS;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_RESULTEDVARS;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   options notes source;
+MPRINT(EM_DIAGRAM):   run;
+22454      run;
+ 
+22455      data EMWS2.Varsel_CMETA_NONREJECTS EMWS2.Varsel_CMETA_REJECTS;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_CMETA_NONREJECTS EMWS2.Varsel_CMETA_REJECTS;
+22456      set EMWS2.Varsel_CMETA_TRAIN;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_CMETA_TRAIN;
+22457      if ROLE ='REJECTED' then output EMWS2.Varsel_CMETA_REJECTS;
+MPRINT(EM_DIAGRAM):   if ROLE ='REJECTED' then output EMWS2.Varsel_CMETA_REJECTS;
+22458      else output EMWS2.Varsel_CMETA_NONREJECTS;
+MPRINT(EM_DIAGRAM):   else output EMWS2.Varsel_CMETA_NONREJECTS;
+22459      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 12 observations read from the data set EMWS2.VARSEL_CMETA_TRAIN.
+NOTE: The data set EMWS2.VARSEL_CMETA_NONREJECTS has 9 observations and 20 variables.
+NOTE: The data set EMWS2.VARSEL_CMETA_REJECTS has 3 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+ 
+ 
+22460      data EMWS2.Varsel_CMETA_TRAIN;
+MPRINT(EM_DIAGRAM):    data EMWS2.Varsel_CMETA_TRAIN;
+22461      set EMWS2.Varsel_CMETA_NONREJECTS;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_CMETA_NONREJECTS;
+22462      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 9 observations read from the data set EMWS2.VARSEL_CMETA_NONREJECTS.
+NOTE: The data set EMWS2.VARSEL_CMETA_TRAIN has 9 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+22463      data WORK._tmp_meta_;
+MPRINT(EM_DIAGRAM):    data WORK._tmp_meta_;
+22464      set EMWS2.Varsel_CMETA_TRAIN;
+MPRINT(EM_DIAGRAM):   set EMWS2.Varsel_CMETA_TRAIN;
+22465      if ROLE ^= 'INPUT' then delete;
+MPRINT(EM_DIAGRAM):   if ROLE ^= 'INPUT' then delete;
+22466      run;
+MPRINT(EM_DIAGRAM):   run;
+ 
+NOTE: There were 9 observations read from the data set EMWS2.VARSEL_CMETA_TRAIN.
+NOTE: The data set WORK._TMP_META_ has 6 observations and 20 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "17:01:47" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Report Log
+Date:                August 11, 2022
+Time:                17:01:47
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O0FFOY56 "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Varsel\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O0FFOY56 new;
+MPRINT(EM_DIAGRAM):   run;
+22490      %em_getActionStatus(emlib=EMWS2, nodeid=Varsel);
+MPRINT(EM_DIAGRAM):
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+ 
+22491      %let em_Train = Y;
+22492      %let em_Report = Y;
+22493      %let em_Score = Y;
+22494      %let em_Run = Y;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+ 
+ 
+MPRINT(EM_GETACTIONSTATUS):
+MPRINT(EM_DIAGRAM):  ;
+ 
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;

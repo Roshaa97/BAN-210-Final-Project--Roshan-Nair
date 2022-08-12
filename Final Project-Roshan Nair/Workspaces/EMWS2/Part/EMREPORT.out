@@ -1,0 +1,28 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Summary Statistics for Interval Targets
+
+Data=DATA
+
+                                                             Number of                     Standard
+Variable         Maximum            Mean         Minimum    Observations    Missing       Deviation    Label
+
+  mpg               46.6    23.514572864               9             398       0       7.8159843126         
+
+
+Data=TRAIN
+
+                                                             Number of                     Standard
+Variable         Maximum            Mean         Minimum    Observations    Missing       Deviation    Label
+
+  mpg               46.6    23.523899371              10             318       0       7.7904370653         
+
+
+Data=VALIDATE
+
+                                                             Number of                     Standard
+Variable         Maximum            Mean         Minimum    Observations    Missing       Deviation    Label
+
+  mpg               44.6         23.4775               9              80       0        7.966241669         

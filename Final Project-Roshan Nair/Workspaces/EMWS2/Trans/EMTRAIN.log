@@ -1,0 +1,1550 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "14:23:07" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Training Log
+Date:                August 11, 2022
+Time:                14:23:07
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O1PSYJ_9 "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O1PSYJ_9 new;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOG "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMLOG.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "14:23:07" );
+MPRINT(EM_DIAGRAM):   file _LOG;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                AutoLogon";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "Site:                70192439";
+MPRINT(EM_DIAGRAM):   put "Platform:            X64_8PRO";
+MPRINT(EM_DIAGRAM):   put "Maintenance Release: 9.04.01M3P062415";
+MPRINT(EM_DIAGRAM):   put "EM Version:          14.1";
+MPRINT(EM_DIAGRAM):   put "* ";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMTRAIN.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _LOG MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_LOGIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _LOGIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMSCORE.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMREPORT.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    filename _LOG;
+MPRINT(EM_DIAGRAM):    filename _OUT "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMOUTPUT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "August 11, 2022" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "14:23:07" );
+MPRINT(EM_DIAGRAM):   file _OUT;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                AutoLogon";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _OUT MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_OUTIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    filename _OUT;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\AutoLogon\Desktop\Roshan Seneca\SEM 2\ROSHAN SEM 2\BAN 210\Final Project\Final Project-Roshan Nair\Workspaces\EMWS2\Trans\EMRUNSTATUS.xml' encoding="UTF-8" NOBOM;
+21384      proc freq data=EMWS2.Trans_VariableSet noprint;
+MPRINT(EM_DIAGRAM):    proc freq data=EMWS2.Trans_VariableSet noprint;
+21385      table ROLE*LEVEL/out=WORK.TransMETA;
+MPRINT(EM_DIAGRAM):   table ROLE*LEVEL/out=WORK.TransMETA;
+21386      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 9 observations read from the data set EMWS2.TRANS_VARIABLESET.
+NOTE: The data set WORK.TRANSMETA has 3 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.06 seconds
+      
+
+21387      proc print data=WORK.TransMETA label noobs;
+MPRINT(EM_DIAGRAM):   proc print data=WORK.TransMETA label noobs;
+21388      var ROLE LEVEL COUNT;
+MPRINT(EM_DIAGRAM):   var ROLE LEVEL COUNT;
+21389      label ROLE = "%sysfunc(sasmsg(sashelp.dmine, meta_role_vlabel, NOQUOTE))" LEVEL = "%sysfunc(sasmsg(sashelp.dmine, meta_level_vlabel, NOQUOTE))" COUNT = "%sysfunc(sasmsg(sashelp.dmine, rpt_count_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label ROLE = "Role" LEVEL = "Measurement Level" COUNT = "Frequency Count";
+21390      title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+21391      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_varSummary_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Variable Summary";
+MPRINT(EM_DIAGRAM):   run;
+21392      run;
+
+NOTE: There were 3 observations read from the data set WORK.TRANSMETA.
+NOTE: The PROCEDURE PRINT printed page 1.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21393      title10;
+MPRINT(EM_DIAGRAM):   title10;
+21394      data WORK.M21AVP4Z;
+MPRINT(EM_DIAGRAM):    data WORK.M21AVP4Z;
+21395      set WORK.M21AVP4Z;
+MPRINT(EM_DIAGRAM):   set WORK.M21AVP4Z;
+21396      if (METHOD='NONE' and ROLE ne 'FREQ') or (role = 'REJECTED' and METHOD = 'DEFAULT') then delete;
+MPRINT(EM_DIAGRAM):   if (METHOD='NONE' and ROLE ne 'FREQ') or (role = 'REJECTED' and METHOD = 'DEFAULT') then delete;
+21397      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 9 observations read from the data set WORK.M21AVP4Z.
+NOTE: The data set WORK.M21AVP4Z has 9 observations and 22 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21462      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):     *------------------------------------------------------------*;
+21463      * Trans: Computing Summary Statistics;
+MPRINT(EM_DIAGRAM):   * Trans: Computing Summary Statistics;
+21464      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21465      data WORK.M2387U5Z;
+MPRINT(EM_DIAGRAM):   data WORK.M2387U5Z;
+21466      set WORK.M2387U5Z;
+MPRINT(EM_DIAGRAM):   set WORK.M2387U5Z;
+21467      if (role = 'REJECTED') then role = 'INPUT';
+MPRINT(EM_DIAGRAM):   if (role = 'REJECTED') then role = 'INPUT';
+21468      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 9 observations read from the data set WORK.M2387U5Z.
+NOTE: The data set WORK.M2387U5Z has 9 observations and 22 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21469      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+21470      * EM: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBClass Macro ;
+21471      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21472      %macro DMDBClass;
+21473          car_name(ASC) horsepower(ASC)
+21474      %mend DMDBClass;
+21475      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21476      * EM: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBVar Macro ;
+21477      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21478      %macro DMDBVar;
+21479          acceleration cylinders displacement model mpg origin weight
+21480      %mend DMDBVar;
+21481      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21482      * EM: Create DMDB;
+MPRINT(EM_DIAGRAM):   * EM: Create DMDB;
+21483      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21484      proc dmdb batch data=EMWS2.Part_TRAIN
+21485      dmdbcat=WORK.EM_DMDB
+21486      classout=WORK.Transclassout
+21487      maxlevel = 513
+21488      ;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=EMWS2.Part_TRAIN dmdbcat=WORK.EM_DMDB classout=WORK.Transclassout maxlevel = 513 ;
+MPRINT(EM_DIAGRAM):   class
+21489      class %DMDBClass;
+MPRINT(DMDBCLASS):   car_name(ASC) horsepower(ASC)
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   var
+21490      var %DMDBVar;
+MPRINT(DMDBVAR):   acceleration cylinders displacement model mpg origin weight
+MPRINT(EM_DIAGRAM):  ;
+21491      target
+21492      mpg
+21493      ;
+MPRINT(EM_DIAGRAM):   target mpg ;
+21494      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Records processed = 318   Memory used = 511K.
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: The data set WORK.TRANSCLASSOUT has 334 observations and 9 variables.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   *--- end code ---*;
+21495      quit;
+21496      *--- end code ---*;
+
+21497      data WORK.TransINTERVALMETA;
+MPRINT(EM_DIAGRAM):    data WORK.TransINTERVALMETA;
+21498      set WORK.M21AVP4Z;
+MPRINT(EM_DIAGRAM):   set WORK.M21AVP4Z;
+21499      if LEVEL ne 'INTERVAL' then delete;
+MPRINT(EM_DIAGRAM):   if LEVEL ne 'INTERVAL' then delete;
+21500      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 9 observations read from the data set WORK.M21AVP4Z.
+NOTE: The data set WORK.TRANSINTERVALMETA has 7 observations and 22 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21501      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+21502      * Trans: Determining Variables to Scale;
+MPRINT(EM_DIAGRAM):   * Trans: Determining Variables to Scale;
+21503      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21504      data WORK.M3R_G8_G;
+MPRINT(EM_DIAGRAM):   data WORK.M3R_G8_G;
+21505      set WORK.M3R_G8_G;
+MPRINT(EM_DIAGRAM):   set WORK.M3R_G8_G;
+21506      where (TYPE="N" and (METHOD in("MAX_NORM", "MAX_CORR", "EQUALIZE", "OP_MAX_NORM", "OP_EQUALIZE"))) or (ROLE eq "FREQ");
+MPRINT(EM_DIAGRAM):   where (TYPE="N" and (METHOD in("MAX_NORM", "MAX_CORR", "EQUALIZE", "OP_MAX_NORM", "OP_EQUALIZE"))) or (ROLE eq "FREQ");
+21507      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 5 observations read from the data set WORK.M3R_G8_G.
+      WHERE ((TYPE='N') and METHOD in ('EQUALIZE', 'MAX_CORR', 'MAX_NORM', 'OP_EQUALIZE', 'OP_MAX_NORM')) or (ROLE='FREQ');
+NOTE: The data set WORK.M3R_G8_G has 5 observations and 22 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21508      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+21509      * Trans: STDIZE Variables Macro ;
+MPRINT(EM_DIAGRAM):   * Trans: STDIZE Variables Macro ;
+21510      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+21511      %macro stdizevar;
+21512          cylinders displacement model origin weight
+21513      %mend stdizevar;
+21514      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21515      * Trans: Computing Summary Statistics;
+MPRINT(EM_DIAGRAM):   * Trans: Computing Summary Statistics;
+21516      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21517      proc stdize
+21518      data = EMWS2.Part_TRAIN
+21519      out=_null_
+21520      outstat=WORK.Trans_STAT
+21521      add=0 fuzz=1E-14 initial=MAD
+21522      vardef=df
+21523      method=STD
+21524      mult=1
+21525      pctlmtd=ORD_STAT pctldef=2
+21526      pctlpts=(
+21527      0
+21528      100
+21529      )
+21530      ;
+MPRINT(EM_DIAGRAM):   proc stdize data = EMWS2.Part_TRAIN out=_null_ outstat=WORK.Trans_STAT add=0 fuzz=1E-14 initial=MAD vardef=df method=STD mult=1 pctlmtd=ORD_STAT pctldef=2 pctlpts=( 0 100 ) ;
+MPRINT(EM_DIAGRAM):   var
+21531      var %stdizevar;
+MPRINT(STDIZEVAR):   cylinders displacement model origin weight
+MPRINT(EM_DIAGRAM):  ;
+21532      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: INITIAL= will be ignored.
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: The data set WORK.TRANS_STAT has 10 observations and 6 variables.
+NOTE: PROCEDURE STDIZE used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+21533      quit;
+
+21534      data WORK.Trans_MINMAX;
+MPRINT(EM_DIAGRAM):    data WORK.Trans_MINMAX;
+21535      set WORK.Trans_STAT;
+MPRINT(EM_DIAGRAM):   set WORK.Trans_STAT;
+21536      where _TYPE_ in('P0','P100');
+MPRINT(EM_DIAGRAM):   where _TYPE_ in('P0','P100');
+21537      if _TYPE_='P0' then _TYPE_='MIN';
+MPRINT(EM_DIAGRAM):   if _TYPE_='P0' then _TYPE_='MIN';
+21538      else if _TYPE_='P100' then _TYPE_='MAX';
+MPRINT(EM_DIAGRAM):   else if _TYPE_='P100' then _TYPE_='MAX';
+21539      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 2 observations read from the data set WORK.TRANS_STAT.
+      WHERE _TYPE_ in ('P0', 'P100');
+NOTE: The data set WORK.TRANS_MINMAX has 2 observations and 6 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.03 seconds
+      
+
+21540      proc transpose data=WORK.Trans_MINMAX out=WORK.Trans_MINMAX(drop=_LABEL_ rename=(_NAME_=_VARIABLE_));
+MPRINT(EM_DIAGRAM):   proc transpose data=WORK.Trans_MINMAX out=WORK.Trans_MINMAX(drop=_LABEL_ rename=(_NAME_=_VARIABLE_));
+21541      id _TYPE_;
+MPRINT(EM_DIAGRAM):   id _TYPE_;
+21542      run;
+MPRINT(EM_DIAGRAM):   run;
+
+WARNING: The variable _LABEL_ in the DROP, KEEP, or RENAME list has never been referenced.
+NOTE: There were 2 observations read from the data set WORK.TRANS_MINMAX.
+NOTE: The data set WORK.TRANS_MINMAX has 5 observations and 3 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.03 seconds
+      
+
+21543      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+21544      * -S-: Computing Scale Variables;
+MPRINT(EM_DIAGRAM):   * -S-: Computing Scale Variables;
+21545      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21546      data WORK.TransScaledData / view=WORK.TransScaledData;
+MPRINT(EM_DIAGRAM):   data WORK.TransScaledData / view=WORK.TransScaledData;
+21547      set EMWS2.Part_TRAIN;
+MPRINT(EM_DIAGRAM):   set EMWS2.Part_TRAIN;
+21548      if cylinders ne . then Trans_SCALEVAR_1 = max((cylinders - 3), 0.0)/5;
+MPRINT(EM_DIAGRAM):   if cylinders ne . then Trans_SCALEVAR_1 = max((cylinders - 3), 0.0)/5;
+21549      else Trans_SCALEVAR_1 = .;
+MPRINT(EM_DIAGRAM):   else Trans_SCALEVAR_1 = .;
+21550      if displacement ne . then Trans_SCALEVAR_2 = max((displacement - 68), 0.0)/387;
+MPRINT(EM_DIAGRAM):   if displacement ne . then Trans_SCALEVAR_2 = max((displacement - 68), 0.0)/387;
+21551      else Trans_SCALEVAR_2 = .;
+MPRINT(EM_DIAGRAM):   else Trans_SCALEVAR_2 = .;
+21552      if model ne . then Trans_SCALEVAR_3 = max((model - 70), 0.0)/12;
+MPRINT(EM_DIAGRAM):   if model ne . then Trans_SCALEVAR_3 = max((model - 70), 0.0)/12;
+21553      else Trans_SCALEVAR_3 = .;
+MPRINT(EM_DIAGRAM):   else Trans_SCALEVAR_3 = .;
+21554      if origin ne . then Trans_SCALEVAR_4 = max((origin - 1), 0.0)/2;
+MPRINT(EM_DIAGRAM):   if origin ne . then Trans_SCALEVAR_4 = max((origin - 1), 0.0)/2;
+21555      else Trans_SCALEVAR_4 = .;
+MPRINT(EM_DIAGRAM):   else Trans_SCALEVAR_4 = .;
+21556      if weight ne . then Trans_SCALEVAR_5 = max((weight - 1613), 0.0)/3527;
+MPRINT(EM_DIAGRAM):   if weight ne . then Trans_SCALEVAR_5 = max((weight - 1613), 0.0)/3527;
+21557      else Trans_SCALEVAR_5 = .;
+MPRINT(EM_DIAGRAM):   else Trans_SCALEVAR_5 = .;
+21558      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: DATA STEP view saved on file WORK.TRANSSCALEDDATA.
+NOTE: A stored DATA STEP view cannot run under a different operating system.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.06 seconds
+      
+
+21559      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+21560      * Trans: Computing optimal maximize normality transformations;
+MPRINT(EM_DIAGRAM):   * Trans: Computing optimal maximize normality transformations;
+21561      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+21562      data WORK._TRNTMP(keep=Trans_SCALEVAR_1 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+MPRINT(EM_DIAGRAM):   data WORK._TRNTMP(keep=Trans_SCALEVAR_1 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+21563      set WORK.TransScaledData;
+MPRINT(EM_DIAGRAM):   set WORK.TransScaledData;
+21564      tempvar = Trans_SCALEVAR_1 + 0;
+MPRINT(EM_DIAGRAM):   tempvar = Trans_SCALEVAR_1 + 0;
+21565      if Trans_SCALEVAR_1 ne . then do;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_1 ne . then do;
+21566      if tempvar > 0 then _logvar = log(tempvar);
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _logvar = log(tempvar);
+21567      _rt4var = (Trans_SCALEVAR_1 + 0) ** 0.25;
+MPRINT(EM_DIAGRAM):   _rt4var = (Trans_SCALEVAR_1 + 0) ** 0.25;
+21568      if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+21569      _sqrvar = (Trans_SCALEVAR_1 + 0)**2;
+MPRINT(EM_DIAGRAM):   _sqrvar = (Trans_SCALEVAR_1 + 0)**2;
+21570      _pwr4var = (Trans_SCALEVAR_1 + 0)**4;
+MPRINT(EM_DIAGRAM):   _pwr4var = (Trans_SCALEVAR_1 + 0)**4;
+21571      _expvar = exp((Trans_SCALEVAR_1 + 0)/1);
+MPRINT(EM_DIAGRAM):   _expvar = exp((Trans_SCALEVAR_1 + 0)/1);
+21572      end;
+MPRINT(EM_DIAGRAM):   end;
+21573      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: View WORK.TRANSSCALEDDATA.VIEW used (Total process time):
+      real time           0.42 seconds
+      cpu time            0.04 seconds
+      
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: There were 318 observations read from the data set WORK.TRANSSCALEDDATA.
+NOTE: The data set WORK._TRNTMP has 318 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.46 seconds
+      cpu time            0.06 seconds
+      
+
+21574      proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+MPRINT(EM_DIAGRAM):    proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+21575      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE STANDARD used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21576      proc sort data=WORK._TRNDS NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._TRNDS NOTHREADS;
+21577      by Trans_SCALEVAR_1;
+MPRINT(EM_DIAGRAM):   by Trans_SCALEVAR_1;
+21578      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+21579      data WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   data WORK._TRNDS;
+21580      set WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._TRNDS;
+21581      normval = probit(_n_/(318+1));
+MPRINT(EM_DIAGRAM):   normval = probit(_n_/(318+1));
+21582      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.26 seconds
+      cpu time            0.01 seconds
+      
+
+21583      proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+MPRINT(EM_DIAGRAM):   proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+21584      var Trans_SCALEVAR_1 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+MPRINT(EM_DIAGRAM):   var Trans_SCALEVAR_1 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+21585      with normval;
+MPRINT(EM_DIAGRAM):   with normval;
+21586      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._INDTRNDS has 4 observations and 9 variables.
+NOTE: PROCEDURE CORR used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.00 seconds
+      
+
+21587      data _modtmp(keep=_power _val);
+MPRINT(EM_DIAGRAM):    data _modtmp(keep=_power _val);
+21588      set WORK._INDTRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._INDTRNDS;
+21589      if _type_ = 'CORR' then do;
+MPRINT(EM_DIAGRAM):   if _type_ = 'CORR' then do;
+21590      _power = 0;
+MPRINT(EM_DIAGRAM):   _power = 0;
+21591      _val = ((2*_logvar + _rt4var)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((2*_logvar + _rt4var)/3)**2;
+21592      output;
+MPRINT(EM_DIAGRAM):   output;
+21593      _power = .25;
+MPRINT(EM_DIAGRAM):   _power = .25;
+21594      _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+21595      output;
+MPRINT(EM_DIAGRAM):   output;
+21596      _power = .5;
+MPRINT(EM_DIAGRAM):   _power = .5;
+21597      _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_1)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_1)/4)**2;
+21598      output;
+MPRINT(EM_DIAGRAM):   output;
+21599      _power = 1;
+MPRINT(EM_DIAGRAM):   _power = 1;
+21600      _val = ((_sqrtvar + 2*Trans_SCALEVAR_1 + _sqrvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrtvar + 2*Trans_SCALEVAR_1 + _sqrvar)/4)**2;
+21601      output;
+MPRINT(EM_DIAGRAM):   output;
+21602      _power = 2;
+MPRINT(EM_DIAGRAM):   _power = 2;
+21603      _val = ((Trans_SCALEVAR_1 + 2*_sqrvar + _pwr4var)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((Trans_SCALEVAR_1 + 2*_sqrvar + _pwr4var)/4)**2;
+21604      output;
+MPRINT(EM_DIAGRAM):   output;
+21605      _power = 4;
+MPRINT(EM_DIAGRAM):   _power = 4;
+21606      _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+21607      output;
+MPRINT(EM_DIAGRAM):   output;
+21608      _power = 10;
+MPRINT(EM_DIAGRAM):   _power = 10;
+21609      _val = ((_pwr4var + 2*_expvar)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_pwr4var + 2*_expvar)/3)**2;
+21610      output;
+MPRINT(EM_DIAGRAM):   output;
+21611      end;
+MPRINT(EM_DIAGRAM):   end;
+
+NOTE: There were 4 observations read from the data set WORK._INDTRNDS.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21612      proc sort data=_modtmp NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=_modtmp NOTHREADS;
+21613      by descending _val;
+MPRINT(EM_DIAGRAM):   by descending _val;
+21614      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 7 observations read from the data set WORK._MODTMP.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21615      %let _tmpa=1;
+21616      proc sql;
+MPRINT(EM_DIAGRAM):   proc sql;
+21617      reset noprint;
+MPRINT(EM_DIAGRAM):   reset noprint;
+21618      select _power into :_tmpa from _modtmp;
+MPRINT(EM_DIAGRAM):   select _power into :_tmpa from _modtmp;
+21619      quit;
+MPRINT(EM_DIAGRAM):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+21620      data WORK._TRNTMP(keep=Trans_SCALEVAR_2 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+MPRINT(EM_DIAGRAM):    data WORK._TRNTMP(keep=Trans_SCALEVAR_2 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+21621      set WORK.TransScaledData;
+MPRINT(EM_DIAGRAM):   set WORK.TransScaledData;
+21622      tempvar = Trans_SCALEVAR_2 + 0;
+MPRINT(EM_DIAGRAM):   tempvar = Trans_SCALEVAR_2 + 0;
+21623      if Trans_SCALEVAR_2 ne . then do;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_2 ne . then do;
+21624      if tempvar > 0 then _logvar = log(tempvar);
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _logvar = log(tempvar);
+21625      _rt4var = (Trans_SCALEVAR_2 + 0) ** 0.25;
+MPRINT(EM_DIAGRAM):   _rt4var = (Trans_SCALEVAR_2 + 0) ** 0.25;
+21626      if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+21627      _sqrvar = (Trans_SCALEVAR_2 + 0)**2;
+MPRINT(EM_DIAGRAM):   _sqrvar = (Trans_SCALEVAR_2 + 0)**2;
+21628      _pwr4var = (Trans_SCALEVAR_2 + 0)**4;
+MPRINT(EM_DIAGRAM):   _pwr4var = (Trans_SCALEVAR_2 + 0)**4;
+21629      _expvar = exp((Trans_SCALEVAR_2 + 0)/1);
+MPRINT(EM_DIAGRAM):   _expvar = exp((Trans_SCALEVAR_2 + 0)/1);
+21630      end;
+MPRINT(EM_DIAGRAM):   end;
+21631      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: View WORK.TRANSSCALEDDATA.VIEW used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.04 seconds
+      
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: There were 318 observations read from the data set WORK.TRANSSCALEDDATA.
+NOTE: The data set WORK._TRNTMP has 318 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+21632      proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+MPRINT(EM_DIAGRAM):    proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+21633      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE STANDARD used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21634      proc sort data=WORK._TRNDS NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._TRNDS NOTHREADS;
+21635      by Trans_SCALEVAR_2;
+MPRINT(EM_DIAGRAM):   by Trans_SCALEVAR_2;
+21636      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+21637      data WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   data WORK._TRNDS;
+21638      set WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._TRNDS;
+21639      normval = probit(_n_/(318+1));
+MPRINT(EM_DIAGRAM):   normval = probit(_n_/(318+1));
+21640      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+21641      proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+MPRINT(EM_DIAGRAM):   proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+21642      var Trans_SCALEVAR_2 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+MPRINT(EM_DIAGRAM):   var Trans_SCALEVAR_2 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+21643      with normval;
+MPRINT(EM_DIAGRAM):   with normval;
+21644      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._INDTRNDS has 4 observations and 9 variables.
+NOTE: PROCEDURE CORR used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21645      data _modtmp(keep=_power _val);
+MPRINT(EM_DIAGRAM):    data _modtmp(keep=_power _val);
+21646      set WORK._INDTRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._INDTRNDS;
+21647      if _type_ = 'CORR' then do;
+MPRINT(EM_DIAGRAM):   if _type_ = 'CORR' then do;
+21648      _power = 0;
+MPRINT(EM_DIAGRAM):   _power = 0;
+21649      _val = ((2*_logvar + _rt4var)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((2*_logvar + _rt4var)/3)**2;
+21650      output;
+MPRINT(EM_DIAGRAM):   output;
+21651      _power = .25;
+MPRINT(EM_DIAGRAM):   _power = .25;
+21652      _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+21653      output;
+MPRINT(EM_DIAGRAM):   output;
+21654      _power = .5;
+MPRINT(EM_DIAGRAM):   _power = .5;
+21655      _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_2)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_2)/4)**2;
+21656      output;
+MPRINT(EM_DIAGRAM):   output;
+21657      _power = 1;
+MPRINT(EM_DIAGRAM):   _power = 1;
+21658      _val = ((_sqrtvar + 2*Trans_SCALEVAR_2 + _sqrvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrtvar + 2*Trans_SCALEVAR_2 + _sqrvar)/4)**2;
+21659      output;
+MPRINT(EM_DIAGRAM):   output;
+21660      _power = 2;
+MPRINT(EM_DIAGRAM):   _power = 2;
+21661      _val = ((Trans_SCALEVAR_2 + 2*_sqrvar + _pwr4var)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((Trans_SCALEVAR_2 + 2*_sqrvar + _pwr4var)/4)**2;
+21662      output;
+MPRINT(EM_DIAGRAM):   output;
+21663      _power = 4;
+MPRINT(EM_DIAGRAM):   _power = 4;
+21664      _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+21665      output;
+MPRINT(EM_DIAGRAM):   output;
+21666      _power = 10;
+MPRINT(EM_DIAGRAM):   _power = 10;
+21667      _val = ((_pwr4var + 2*_expvar)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_pwr4var + 2*_expvar)/3)**2;
+21668      output;
+MPRINT(EM_DIAGRAM):   output;
+21669      end;
+MPRINT(EM_DIAGRAM):   end;
+
+NOTE: There were 4 observations read from the data set WORK._INDTRNDS.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+21670      proc sort data=_modtmp NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=_modtmp NOTHREADS;
+21671      by descending _val;
+MPRINT(EM_DIAGRAM):   by descending _val;
+21672      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 7 observations read from the data set WORK._MODTMP.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21673      %let _tmpa=1;
+21674      proc sql;
+MPRINT(EM_DIAGRAM):   proc sql;
+21675      reset noprint;
+MPRINT(EM_DIAGRAM):   reset noprint;
+21676      select _power into :_tmpa from _modtmp;
+MPRINT(EM_DIAGRAM):   select _power into :_tmpa from _modtmp;
+21677      quit;
+MPRINT(EM_DIAGRAM):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+21678      data WORK._TRNTMP(keep=Trans_SCALEVAR_3 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+MPRINT(EM_DIAGRAM):    data WORK._TRNTMP(keep=Trans_SCALEVAR_3 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+21679      set WORK.TransScaledData;
+MPRINT(EM_DIAGRAM):   set WORK.TransScaledData;
+21680      tempvar = Trans_SCALEVAR_3 + 0;
+MPRINT(EM_DIAGRAM):   tempvar = Trans_SCALEVAR_3 + 0;
+21681      if Trans_SCALEVAR_3 ne . then do;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_3 ne . then do;
+21682      if tempvar > 0 then _logvar = log(tempvar);
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _logvar = log(tempvar);
+21683      _rt4var = (Trans_SCALEVAR_3 + 0) ** 0.25;
+MPRINT(EM_DIAGRAM):   _rt4var = (Trans_SCALEVAR_3 + 0) ** 0.25;
+21684      if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+21685      _sqrvar = (Trans_SCALEVAR_3 + 0)**2;
+MPRINT(EM_DIAGRAM):   _sqrvar = (Trans_SCALEVAR_3 + 0)**2;
+21686      _pwr4var = (Trans_SCALEVAR_3 + 0)**4;
+MPRINT(EM_DIAGRAM):   _pwr4var = (Trans_SCALEVAR_3 + 0)**4;
+21687      _expvar = exp((Trans_SCALEVAR_3 + 0)/1);
+MPRINT(EM_DIAGRAM):   _expvar = exp((Trans_SCALEVAR_3 + 0)/1);
+21688      end;
+MPRINT(EM_DIAGRAM):   end;
+21689      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: View WORK.TRANSSCALEDDATA.VIEW used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: There were 318 observations read from the data set WORK.TRANSSCALEDDATA.
+NOTE: The data set WORK._TRNTMP has 318 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.05 seconds
+      cpu time            0.04 seconds
+      
+
+21690      proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+MPRINT(EM_DIAGRAM):    proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+21691      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE STANDARD used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+21692      proc sort data=WORK._TRNDS NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._TRNDS NOTHREADS;
+21693      by Trans_SCALEVAR_3;
+MPRINT(EM_DIAGRAM):   by Trans_SCALEVAR_3;
+21694      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21695      data WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   data WORK._TRNDS;
+21696      set WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._TRNDS;
+21697      normval = probit(_n_/(318+1));
+MPRINT(EM_DIAGRAM):   normval = probit(_n_/(318+1));
+21698      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21699      proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+MPRINT(EM_DIAGRAM):   proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+21700      var Trans_SCALEVAR_3 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+MPRINT(EM_DIAGRAM):   var Trans_SCALEVAR_3 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+21701      with normval;
+MPRINT(EM_DIAGRAM):   with normval;
+21702      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._INDTRNDS has 4 observations and 9 variables.
+NOTE: PROCEDURE CORR used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21703      data _modtmp(keep=_power _val);
+MPRINT(EM_DIAGRAM):    data _modtmp(keep=_power _val);
+21704      set WORK._INDTRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._INDTRNDS;
+21705      if _type_ = 'CORR' then do;
+MPRINT(EM_DIAGRAM):   if _type_ = 'CORR' then do;
+21706      _power = 0;
+MPRINT(EM_DIAGRAM):   _power = 0;
+21707      _val = ((2*_logvar + _rt4var)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((2*_logvar + _rt4var)/3)**2;
+21708      output;
+MPRINT(EM_DIAGRAM):   output;
+21709      _power = .25;
+MPRINT(EM_DIAGRAM):   _power = .25;
+21710      _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+21711      output;
+MPRINT(EM_DIAGRAM):   output;
+21712      _power = .5;
+MPRINT(EM_DIAGRAM):   _power = .5;
+21713      _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_3)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_3)/4)**2;
+21714      output;
+MPRINT(EM_DIAGRAM):   output;
+21715      _power = 1;
+MPRINT(EM_DIAGRAM):   _power = 1;
+21716      _val = ((_sqrtvar + 2*Trans_SCALEVAR_3 + _sqrvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrtvar + 2*Trans_SCALEVAR_3 + _sqrvar)/4)**2;
+21717      output;
+MPRINT(EM_DIAGRAM):   output;
+21718      _power = 2;
+MPRINT(EM_DIAGRAM):   _power = 2;
+21719      _val = ((Trans_SCALEVAR_3 + 2*_sqrvar + _pwr4var)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((Trans_SCALEVAR_3 + 2*_sqrvar + _pwr4var)/4)**2;
+21720      output;
+MPRINT(EM_DIAGRAM):   output;
+21721      _power = 4;
+MPRINT(EM_DIAGRAM):   _power = 4;
+21722      _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+21723      output;
+MPRINT(EM_DIAGRAM):   output;
+21724      _power = 10;
+MPRINT(EM_DIAGRAM):   _power = 10;
+21725      _val = ((_pwr4var + 2*_expvar)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_pwr4var + 2*_expvar)/3)**2;
+21726      output;
+MPRINT(EM_DIAGRAM):   output;
+21727      end;
+MPRINT(EM_DIAGRAM):   end;
+
+NOTE: There were 4 observations read from the data set WORK._INDTRNDS.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21728      proc sort data=_modtmp NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=_modtmp NOTHREADS;
+21729      by descending _val;
+MPRINT(EM_DIAGRAM):   by descending _val;
+21730      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 7 observations read from the data set WORK._MODTMP.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21731      %let _tmpa=1;
+21732      proc sql;
+MPRINT(EM_DIAGRAM):   proc sql;
+21733      reset noprint;
+MPRINT(EM_DIAGRAM):   reset noprint;
+21734      select _power into :_tmpa from _modtmp;
+MPRINT(EM_DIAGRAM):   select _power into :_tmpa from _modtmp;
+21735      quit;
+MPRINT(EM_DIAGRAM):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+21736      data WORK._TRNTMP(keep=Trans_SCALEVAR_4 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+MPRINT(EM_DIAGRAM):    data WORK._TRNTMP(keep=Trans_SCALEVAR_4 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+21737      set WORK.TransScaledData;
+MPRINT(EM_DIAGRAM):   set WORK.TransScaledData;
+21738      tempvar = Trans_SCALEVAR_4 + 0;
+MPRINT(EM_DIAGRAM):   tempvar = Trans_SCALEVAR_4 + 0;
+21739      if Trans_SCALEVAR_4 ne . then do;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_4 ne . then do;
+21740      if tempvar > 0 then _logvar = log(tempvar);
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _logvar = log(tempvar);
+21741      _rt4var = (Trans_SCALEVAR_4 + 0) ** 0.25;
+MPRINT(EM_DIAGRAM):   _rt4var = (Trans_SCALEVAR_4 + 0) ** 0.25;
+21742      if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+21743      _sqrvar = (Trans_SCALEVAR_4 + 0)**2;
+MPRINT(EM_DIAGRAM):   _sqrvar = (Trans_SCALEVAR_4 + 0)**2;
+21744      _pwr4var = (Trans_SCALEVAR_4 + 0)**4;
+MPRINT(EM_DIAGRAM):   _pwr4var = (Trans_SCALEVAR_4 + 0)**4;
+21745      _expvar = exp((Trans_SCALEVAR_4 + 0)/1);
+MPRINT(EM_DIAGRAM):   _expvar = exp((Trans_SCALEVAR_4 + 0)/1);
+21746      end;
+MPRINT(EM_DIAGRAM):   end;
+21747      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: View WORK.TRANSSCALEDDATA.VIEW used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.06 seconds
+      
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: There were 318 observations read from the data set WORK.TRANSSCALEDDATA.
+NOTE: The data set WORK._TRNTMP has 318 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.09 seconds
+      
+
+21748      proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+MPRINT(EM_DIAGRAM):    proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+21749      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE STANDARD used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+21750      proc sort data=WORK._TRNDS NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._TRNDS NOTHREADS;
+21751      by Trans_SCALEVAR_4;
+MPRINT(EM_DIAGRAM):   by Trans_SCALEVAR_4;
+21752      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.03 seconds
+      
+
+21753      data WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   data WORK._TRNDS;
+21754      set WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._TRNDS;
+21755      normval = probit(_n_/(318+1));
+MPRINT(EM_DIAGRAM):   normval = probit(_n_/(318+1));
+21756      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21757      proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+MPRINT(EM_DIAGRAM):   proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+21758      var Trans_SCALEVAR_4 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+MPRINT(EM_DIAGRAM):   var Trans_SCALEVAR_4 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+21759      with normval;
+MPRINT(EM_DIAGRAM):   with normval;
+21760      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._INDTRNDS has 4 observations and 9 variables.
+NOTE: PROCEDURE CORR used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21761      data _modtmp(keep=_power _val);
+MPRINT(EM_DIAGRAM):    data _modtmp(keep=_power _val);
+21762      set WORK._INDTRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._INDTRNDS;
+21763      if _type_ = 'CORR' then do;
+MPRINT(EM_DIAGRAM):   if _type_ = 'CORR' then do;
+21764      _power = 0;
+MPRINT(EM_DIAGRAM):   _power = 0;
+21765      _val = ((2*_logvar + _rt4var)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((2*_logvar + _rt4var)/3)**2;
+21766      output;
+MPRINT(EM_DIAGRAM):   output;
+21767      _power = .25;
+MPRINT(EM_DIAGRAM):   _power = .25;
+21768      _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+21769      output;
+MPRINT(EM_DIAGRAM):   output;
+21770      _power = .5;
+MPRINT(EM_DIAGRAM):   _power = .5;
+21771      _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_4)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_4)/4)**2;
+21772      output;
+MPRINT(EM_DIAGRAM):   output;
+21773      _power = 1;
+MPRINT(EM_DIAGRAM):   _power = 1;
+21774      _val = ((_sqrtvar + 2*Trans_SCALEVAR_4 + _sqrvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrtvar + 2*Trans_SCALEVAR_4 + _sqrvar)/4)**2;
+21775      output;
+MPRINT(EM_DIAGRAM):   output;
+21776      _power = 2;
+MPRINT(EM_DIAGRAM):   _power = 2;
+21777      _val = ((Trans_SCALEVAR_4 + 2*_sqrvar + _pwr4var)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((Trans_SCALEVAR_4 + 2*_sqrvar + _pwr4var)/4)**2;
+21778      output;
+MPRINT(EM_DIAGRAM):   output;
+21779      _power = 4;
+MPRINT(EM_DIAGRAM):   _power = 4;
+21780      _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+21781      output;
+MPRINT(EM_DIAGRAM):   output;
+21782      _power = 10;
+MPRINT(EM_DIAGRAM):   _power = 10;
+21783      _val = ((_pwr4var + 2*_expvar)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_pwr4var + 2*_expvar)/3)**2;
+21784      output;
+MPRINT(EM_DIAGRAM):   output;
+21785      end;
+MPRINT(EM_DIAGRAM):   end;
+
+NOTE: There were 4 observations read from the data set WORK._INDTRNDS.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+21786      proc sort data=_modtmp NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=_modtmp NOTHREADS;
+21787      by descending _val;
+MPRINT(EM_DIAGRAM):   by descending _val;
+21788      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 7 observations read from the data set WORK._MODTMP.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21789      %let _tmpa=1;
+21790      proc sql;
+MPRINT(EM_DIAGRAM):   proc sql;
+21791      reset noprint;
+MPRINT(EM_DIAGRAM):   reset noprint;
+21792      select _power into :_tmpa from _modtmp;
+MPRINT(EM_DIAGRAM):   select _power into :_tmpa from _modtmp;
+21793      quit;
+MPRINT(EM_DIAGRAM):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+21794      data WORK._TRNTMP(keep=Trans_SCALEVAR_5 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+MPRINT(EM_DIAGRAM):    data WORK._TRNTMP(keep=Trans_SCALEVAR_5 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar);
+21795      set WORK.TransScaledData;
+MPRINT(EM_DIAGRAM):   set WORK.TransScaledData;
+21796      tempvar = Trans_SCALEVAR_5 + 0;
+MPRINT(EM_DIAGRAM):   tempvar = Trans_SCALEVAR_5 + 0;
+21797      if Trans_SCALEVAR_5 ne . then do;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_5 ne . then do;
+21798      if tempvar > 0 then _logvar = log(tempvar);
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _logvar = log(tempvar);
+21799      _rt4var = (Trans_SCALEVAR_5 + 0) ** 0.25;
+MPRINT(EM_DIAGRAM):   _rt4var = (Trans_SCALEVAR_5 + 0) ** 0.25;
+21800      if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+MPRINT(EM_DIAGRAM):   if tempvar > 0 then _sqrtvar = sqrt((tempvar));
+21801      _sqrvar = (Trans_SCALEVAR_5 + 0)**2;
+MPRINT(EM_DIAGRAM):   _sqrvar = (Trans_SCALEVAR_5 + 0)**2;
+21802      _pwr4var = (Trans_SCALEVAR_5 + 0)**4;
+MPRINT(EM_DIAGRAM):   _pwr4var = (Trans_SCALEVAR_5 + 0)**4;
+21803      _expvar = exp((Trans_SCALEVAR_5 + 0)/1);
+MPRINT(EM_DIAGRAM):   _expvar = exp((Trans_SCALEVAR_5 + 0)/1);
+21804      end;
+MPRINT(EM_DIAGRAM):   end;
+21805      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: View WORK.TRANSSCALEDDATA.VIEW used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+NOTE: There were 318 observations read from the data set EMWS2.PART_TRAIN.
+NOTE: There were 318 observations read from the data set WORK.TRANSSCALEDDATA.
+NOTE: The data set WORK._TRNTMP has 318 observations and 7 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.07 seconds
+      
+
+21806      proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+MPRINT(EM_DIAGRAM):    proc standard data=WORK._TRNTMP out=WORK._TRNDS mean=0 std=1;
+21807      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE STANDARD used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21808      proc sort data=WORK._TRNDS NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK._TRNDS NOTHREADS;
+21809      by Trans_SCALEVAR_5;
+MPRINT(EM_DIAGRAM):   by Trans_SCALEVAR_5;
+21810      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 7 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+21811      data WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   data WORK._TRNDS;
+21812      set WORK._TRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._TRNDS;
+21813      normval = probit(_n_/(318+1));
+MPRINT(EM_DIAGRAM):   normval = probit(_n_/(318+1));
+21814      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 318 observations read from the data set WORK._TRNDS.
+NOTE: The data set WORK._TRNDS has 318 observations and 8 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21815      proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+MPRINT(EM_DIAGRAM):   proc corr data=WORK._TRNDS outp=WORK._INDTRNDS noprint;
+21816      var Trans_SCALEVAR_5 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+MPRINT(EM_DIAGRAM):   var Trans_SCALEVAR_5 _logvar _rt4var _sqrtvar _sqrvar _pwr4var _expvar;
+21817      with normval;
+MPRINT(EM_DIAGRAM):   with normval;
+21818      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK._INDTRNDS has 4 observations and 9 variables.
+NOTE: PROCEDURE CORR used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+21819      data _modtmp(keep=_power _val);
+MPRINT(EM_DIAGRAM):    data _modtmp(keep=_power _val);
+21820      set WORK._INDTRNDS;
+MPRINT(EM_DIAGRAM):   set WORK._INDTRNDS;
+21821      if _type_ = 'CORR' then do;
+MPRINT(EM_DIAGRAM):   if _type_ = 'CORR' then do;
+21822      _power = 0;
+MPRINT(EM_DIAGRAM):   _power = 0;
+21823      _val = ((2*_logvar + _rt4var)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((2*_logvar + _rt4var)/3)**2;
+21824      output;
+MPRINT(EM_DIAGRAM):   output;
+21825      _power = .25;
+MPRINT(EM_DIAGRAM):   _power = .25;
+21826      _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_logvar + 2*_rt4var + _sqrtvar)/4)**2;
+21827      output;
+MPRINT(EM_DIAGRAM):   output;
+21828      _power = .5;
+MPRINT(EM_DIAGRAM):   _power = .5;
+21829      _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_5)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_rt4var + 2*_sqrtvar + Trans_SCALEVAR_5)/4)**2;
+21830      output;
+MPRINT(EM_DIAGRAM):   output;
+21831      _power = 1;
+MPRINT(EM_DIAGRAM):   _power = 1;
+21832      _val = ((_sqrtvar + 2*Trans_SCALEVAR_5 + _sqrvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrtvar + 2*Trans_SCALEVAR_5 + _sqrvar)/4)**2;
+21833      output;
+MPRINT(EM_DIAGRAM):   output;
+21834      _power = 2;
+MPRINT(EM_DIAGRAM):   _power = 2;
+21835      _val = ((Trans_SCALEVAR_5 + 2*_sqrvar + _pwr4var)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((Trans_SCALEVAR_5 + 2*_sqrvar + _pwr4var)/4)**2;
+21836      output;
+MPRINT(EM_DIAGRAM):   output;
+21837      _power = 4;
+MPRINT(EM_DIAGRAM):   _power = 4;
+21838      _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_sqrvar + 2*_pwr4var + _expvar)/4)**2;
+21839      output;
+MPRINT(EM_DIAGRAM):   output;
+21840      _power = 10;
+MPRINT(EM_DIAGRAM):   _power = 10;
+21841      _val = ((_pwr4var + 2*_expvar)/3)**2;
+MPRINT(EM_DIAGRAM):   _val = ((_pwr4var + 2*_expvar)/3)**2;
+21842      output;
+MPRINT(EM_DIAGRAM):   output;
+21843      end;
+MPRINT(EM_DIAGRAM):   end;
+
+NOTE: There were 4 observations read from the data set WORK._INDTRNDS.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.03 seconds
+      
+
+21844      proc sort data=_modtmp NOTHREADS;
+MPRINT(EM_DIAGRAM):   proc sort data=_modtmp NOTHREADS;
+21845      by descending _val;
+MPRINT(EM_DIAGRAM):   by descending _val;
+21846      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 7 observations read from the data set WORK._MODTMP.
+NOTE: The data set WORK._MODTMP has 7 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+21847      %let _tmpa=1;
+21848      proc sql;
+MPRINT(EM_DIAGRAM):   proc sql;
+21849      reset noprint;
+MPRINT(EM_DIAGRAM):   reset noprint;
+21850      select _power into :_tmpa from _modtmp;
+MPRINT(EM_DIAGRAM):   select _power into :_tmpa from _modtmp;
+21851      quit;
+MPRINT(EM_DIAGRAM):   quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+*------------------------------------------------------------* 
+*  Trans: Equalize transformation requires a class target variable.  Transformation will be ignored. 
+*------------------------------------------------------------* 
+*------------------------------------------------------------* 
+*  Trans: Optimize equalize max. transformation requires a class target variable.  Transformation will be ignored. 
+*------------------------------------------------------------* 
+NOTE: This SAS session is using a registry in WORK.  All changes will be lost at the end of this session.
+*------------------------------------------------------------* 
+*  Trans: Creating EMWS2.Trans_RESULT 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):    data EMWS2.Trans_RESULT;
+MPRINT(EM_DIAGRAM):   length NAME NEWVAR $32 LEVEL $10 POWER 8 FORMULA $70 LABEL $44 TERM $200;
+MPRINT(EM_DIAGRAM):   NAME = "cylinders";
+MPRINT(EM_DIAGRAM):   NEWVAR = "SQRT_cylinders";
+MPRINT(EM_DIAGRAM):   POWER = 0.5;
+MPRINT(EM_DIAGRAM):   FORMULA = "sqrt(max(cylinders-3, 0.0)/5)";
+MPRINT(EM_DIAGRAM):   LABEL = 'Transformed cylinders';
+MPRINT(EM_DIAGRAM):   LEVEL = "INTERVAL";
+MPRINT(EM_DIAGRAM):   TYPE = "N";
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   NAME = "displacement";
+MPRINT(EM_DIAGRAM):   NEWVAR = "PWR_displacement";
+MPRINT(EM_DIAGRAM):   POWER = 0.25;
+MPRINT(EM_DIAGRAM):   FORMULA = "(max(displacement-68, 0.0)/387)**0.25";
+MPRINT(EM_DIAGRAM):   LABEL = 'Transformed displacement';
+MPRINT(EM_DIAGRAM):   LEVEL = "INTERVAL";
+MPRINT(EM_DIAGRAM):   TYPE = "N";
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   NAME = "weight";
+MPRINT(EM_DIAGRAM):   NEWVAR = "SQRT_weight";
+MPRINT(EM_DIAGRAM):   POWER = 0.5;
+MPRINT(EM_DIAGRAM):   FORMULA = "sqrt(max(weight-1613, 0.0)/3527)";
+MPRINT(EM_DIAGRAM):   LABEL = 'Transformed weight';
+MPRINT(EM_DIAGRAM):   LEVEL = "INTERVAL";
+MPRINT(EM_DIAGRAM):   TYPE = "N";
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=EMWS2.Trans_RESULT NOTHREADS;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   proc sort data=WORK.M21AVP4Z out=WORK._TRANSRESLT(RENAME=(LEVEL=INPUTLEVEL TYPE=INPUTTYPE) KEEP=NAME ROLE LEVEL TYPE) NOTHREADS;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data EMWS2.Trans_RESULT(RENAME=(NAME=INPUTNAME NEWVAR=NAME));
+MPRINT(EM_DIAGRAM):   merge EMWS2.Trans_RESULT(in=a) WORK._TRANSRESLT;
+MPRINT(EM_DIAGRAM):   by NAME;
+MPRINT(EM_DIAGRAM):   if a then output;
+MPRINT(EM_DIAGRAM):   run;
+WARNING: Multiple lengths were specified for the BY variable NAME by input data sets. This might cause unexpected results.
+MPRINT(EM_DIAGRAM):   proc datasets library=EMWS2 nolist;
+MPRINT(EM_DIAGRAM):   modify Trans_RESULT;
+MPRINT(EM_DIAGRAM):   label INPUTNAME = "Input Name" NAME = "Output Name" POWER = "Power" FORMULA = "Formula" ROLE = "rpt_role_vlabel" INPUTLEVEL = "Input Level" LEVEL = "Output Level" INPUTTYPE = "Input Type" TYPE = "Output Type";
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.09 seconds
+      
+
+21896      data EMWS2.Trans_RESULT;
+MPRINT(EM_DIAGRAM):   data EMWS2.Trans_RESULT;
+21897      length NAME $32 FORMULA $70 POWER 8 ROLE $32 LEVEL $10 INPUTNAME $32 INPUTTYPE $1 LABEL $44;
+MPRINT(EM_DIAGRAM):   length NAME $32 FORMULA $70 POWER 8 ROLE $32 LEVEL $10 INPUTNAME $32 INPUTTYPE $1 LABEL $44;
+21898      label INPUTNAME ='Input Name' NAME='Name' POWER='Power' FORMULA='Formula' ROLE='Role' INPUTLEVEL='Input Level' LEVEL='Level' INPUTTYPE='Input Type' TYPE='Type';
+MPRINT(EM_DIAGRAM):   label INPUTNAME = 'Input Name' NAME= 'Name' POWER= 'Power' FORMULA= 'Formula' ROLE= 'Role' INPUTLEVEL= 'Input Level' LEVEL= 'Level' INPUTTYPE= 'Input Type' TYPE= 'Type';
+21899      set EMWS2.Trans_RESULT;
+MPRINT(EM_DIAGRAM):   set EMWS2.Trans_RESULT;
+21900      if INPUTNAME = '' then INPUTNAME = "Mixture of variables";
+MPRINT(EM_DIAGRAM):   if INPUTNAME = '' then INPUTNAME = "Mixture of variables";
+21901      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set EMWS2.TRANS_RESULT.
+NOTE: The data set EMWS2.TRANS_RESULT has 3 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+21902      data WORK.M03598FI;
+MPRINT(EM_DIAGRAM):    data WORK.M03598FI;
+21903      set WORK.M03598FI;
+MPRINT(EM_DIAGRAM):   set WORK.M03598FI;
+21904      if ROLE='REJECTED' then ROLE='INPUT';
+MPRINT(EM_DIAGRAM):   if ROLE='REJECTED' then ROLE='INPUT';
+21905      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set WORK.M03598FI.
+NOTE: The data set WORK.M03598FI has 3 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+*------------------------------------------------------------* 
+*  Trans: Computing summary statistics for transformed variables 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):    data WORK.Trans_TRANSFORM / view=WORK.Trans_TRANSFORM;
+MPRINT(EM_DIAGRAM):   set EMWS2.Part_TRAIN;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * TRANSFORM: cylinders , sqrt(max(cylinders-3, 0.0)/5);
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   drop Trans_SCALEVAR_1;
+MPRINT(EM_DIAGRAM):   label SQRT_cylinders = 'Transformed cylinders';
+MPRINT(EM_DIAGRAM):   if cylinders eq . then SQRT_cylinders = .;
+MPRINT(EM_DIAGRAM):   else do;
+MPRINT(EM_DIAGRAM):   Trans_SCALEVAR_1 = max(cylinders-3, 0.0)/5;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_1 >= 0 then SQRT_cylinders = Sqrt(Trans_SCALEVAR_1);
+MPRINT(EM_DIAGRAM):   else SQRT_cylinders = .;
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * TRANSFORM: displacement , (max(displacement-68, 0.0)/387)**0.25;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   drop Trans_SCALEVAR_2;
+MPRINT(EM_DIAGRAM):   label PWR_displacement = 'Transformed displacement';
+MPRINT(EM_DIAGRAM):   if displacement eq . then PWR_displacement = .;
+MPRINT(EM_DIAGRAM):   else do;
+MPRINT(EM_DIAGRAM):   Trans_SCALEVAR_2 = max(displacement-68, 0.0)/387;
+MPRINT(EM_DIAGRAM):   PWR_displacement = (Trans_SCALEVAR_2)**0.25;
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * TRANSFORM: weight , sqrt(max(weight-1613, 0.0)/3527);
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   drop Trans_SCALEVAR_5;
+MPRINT(EM_DIAGRAM):   label SQRT_weight = 'Transformed weight';
+MPRINT(EM_DIAGRAM):   if weight eq . then SQRT_weight = .;
+MPRINT(EM_DIAGRAM):   else do;
+MPRINT(EM_DIAGRAM):   Trans_SCALEVAR_5 = max(weight-1613, 0.0)/3527;
+MPRINT(EM_DIAGRAM):   if Trans_SCALEVAR_5 >= 0 then SQRT_weight = Sqrt(Trans_SCALEVAR_5);
+MPRINT(EM_DIAGRAM):   else SQRT_weight = .;
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * EM: Create DMDB;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=WORK.Trans_TRANSFORM dmdbcat=WORK.EM_DMDB maxlevel = 513 ;
+MPRINT(EM_DIAGRAM):   var
+MPRINT(DMDBVAR):   SQRT_cylinders PWR_displacement SQRT_weight
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   *--- end code ---*;
+MPRINT(EM_DIAGRAM):    data WORK.Trans_TEMP;
+MPRINT(EM_DIAGRAM):   length SOURCE $6 NAME $32;
+MPRINT(EM_DIAGRAM):   label SOURCE = "Source" NAME = "Variable Name" NLEVEL = "Number of Levels" NMISS = "Missing" MIN = "Minimum" MAX = "Maximum" MEAN = "Mean" STD = "Standard Deviation" SKEWNESS = "Skewness" KURTOSIS = "Kurtosis";
+MPRINT(EM_DIAGRAM):   SOURCE = "OUTPUT";
+MPRINT(EM_DIAGRAM):   NAME = "SQRT_cylinders";
+MPRINT(EM_DIAGRAM):   NMISS = 0;
+MPRINT(EM_DIAGRAM):   NLEVEL = .;
+MPRINT(EM_DIAGRAM):   MIN = 0;
+MPRINT(EM_DIAGRAM):   MAX = 1;
+MPRINT(EM_DIAGRAM):   MEAN = 0.65595211580128;
+MPRINT(EM_DIAGRAM):   STD = 0.24975148104896;
+MPRINT(EM_DIAGRAM):   SKEWNESS = 0.19467094918664;
+MPRINT(EM_DIAGRAM):   KURTOSIS = -1.16662962462528;
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   SOURCE = "OUTPUT";
+MPRINT(EM_DIAGRAM):   NAME = "PWR_displacement";
+MPRINT(EM_DIAGRAM):   NMISS = 0;
+MPRINT(EM_DIAGRAM):   NLEVEL = .;
+MPRINT(EM_DIAGRAM):   MIN = 0;
+MPRINT(EM_DIAGRAM):   MAX = 1;
+MPRINT(EM_DIAGRAM):   MEAN = 0.69397000979924;
+MPRINT(EM_DIAGRAM):   STD = 0.17980981792722;
+MPRINT(EM_DIAGRAM):   SKEWNESS = -0.2096404658296;
+MPRINT(EM_DIAGRAM):   KURTOSIS = -0.5122010949389;
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   SOURCE = "OUTPUT";
+MPRINT(EM_DIAGRAM):   NAME = "SQRT_weight";
+MPRINT(EM_DIAGRAM):   NMISS = 0;
+MPRINT(EM_DIAGRAM):   NLEVEL = .;
+MPRINT(EM_DIAGRAM):   MIN = 0;
+MPRINT(EM_DIAGRAM):   MAX = 1;
+MPRINT(EM_DIAGRAM):   MEAN = 0.58558246468521;
+MPRINT(EM_DIAGRAM):   STD = 0.20195400948867;
+MPRINT(EM_DIAGRAM):   SKEWNESS = -0.02210241718478;
+MPRINT(EM_DIAGRAM):   KURTOSIS = -0.89208024439653;
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   run;
+22004      data WORK.TRANSFOR_3QNFJFH_STATISTIC;
+MPRINT(EM_DIAGRAM):    data WORK.TRANSFOR_3QNFJFH_STATISTIC;
+22005      set WORK.Trans_TEMP;
+MPRINT(EM_DIAGRAM):   set WORK.Trans_TEMP;
+22006      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 3 observations read from the data set WORK.TRANS_TEMP.
+NOTE: The data set WORK.TRANSFOR_3QNFJFH_STATISTIC has 3 observations and 10 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+22007      proc print data = EMWS2.Trans_RESULT(obs=500) noobs label;
+MPRINT(EM_DIAGRAM):    proc print data = EMWS2.Trans_RESULT(obs=500) noobs label;
+22008      title9 "%sysfunc(sasmsg(sashelp.dmine, rpt_computedtransformations_title, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title9 "Computed Transformations";
+22009      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_maxObsPrinted_title, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "(maximum 500 observations printed)";
+MPRINT(EM_DIAGRAM):   var INPUTNAME ROLE INPUTLEVEL NAME LEVEL FORMULA;
+MPRINT(EM_DIAGRAM):   run;
+22010      var INPUTNAME ROLE INPUTLEVEL NAME LEVEL FORMULA;
+22011      run;
+
+NOTE: There were 3 observations read from the data set EMWS2.TRANS_RESULT.
+NOTE: The PROCEDURE PRINT printed page 2.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+22012      title9;
+MPRINT(EM_DIAGRAM):   title9;
+22013      title10;
+MPRINT(EM_DIAGRAM):   title10;
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;

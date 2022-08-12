@@ -1,0 +1,69 @@
+*------------------------------------------------------------*
+User:                AutoLogon
+Date:                August 11, 2022
+Time:                00:04:49
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+INPUT      INTERVAL          6
+INPUT      NOMINAL           2
+TARGET     INTERVAL          1
+ 
+ 
+ 
+ 
+Partition Summary
+ 
+                                     Number of
+Type             Data Set          Observations
+ 
+DATA        EMWS2.FIMPORT_train         398
+TRAIN       EMWS2.Part_TRAIN            318
+VALIDATE    EMWS2.Part_VALIDATE          80
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Summary Statistics for Interval Targets
+ 
+Data=DATA
+ 
+                                                             Number of                     Standard
+Variable         Maximum            Mean         Minimum    Observations    Missing       Deviation    Label
+ 
+  mpg               46.6    23.514572864               9             398       0       7.8159843126
+ 
+ 
+Data=TRAIN
+ 
+                                                             Number of                     Standard
+Variable         Maximum            Mean         Minimum    Observations    Missing       Deviation    Label
+ 
+  mpg               46.6    23.523899371              10             318       0       7.7904370653
+ 
+ 
+Data=VALIDATE
+ 
+                                                             Number of                     Standard
+Variable         Maximum            Mean         Minimum    Observations    Missing       Deviation    Label
+ 
+  mpg               44.6         23.4775               9              80       0        7.966241669

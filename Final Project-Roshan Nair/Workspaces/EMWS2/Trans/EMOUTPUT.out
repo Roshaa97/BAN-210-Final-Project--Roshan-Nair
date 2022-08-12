@@ -1,0 +1,41 @@
+*------------------------------------------------------------*
+User:                AutoLogon
+Date:                August 11, 2022
+Time:                14:23:21
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+INPUT      INTERVAL          6
+INPUT      NOMINAL           2
+TARGET     INTERVAL          1
+ 
+ 
+ 
+Computed Transformations
+(maximum 500 observations printed)
+ 
+                          Input
+Input Name      Role      Level            Name           Level                     Formula
+ 
+cylinders       INPUT    INTERVAL    SQRT_cylinders      INTERVAL    sqrt(max(cylinders-3, 0.0)/5)
+displacement    INPUT    INTERVAL    PWR_displacement    INTERVAL    (max(displacement-68, 0.0)/387)**0.25
+weight          INPUT    INTERVAL    SQRT_weight         INTERVAL    sqrt(max(weight-1613, 0.0)/3527)
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
